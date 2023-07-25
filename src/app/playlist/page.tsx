@@ -11,10 +11,7 @@ export default async function playlist(){
 
     return(
         <div className="flex flex-col h-full">
-            <div className="flex justify-between mt-20">
-                <span className="text-4xl font-semibold">Playlist</span>
-                <Button text='Adicionar playlist'/>
-            </div>
+            <Button add='Adicionar playlist' text='Playlist'/>
             <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {data.map((card) => {
                     return(

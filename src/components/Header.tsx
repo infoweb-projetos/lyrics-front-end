@@ -6,12 +6,12 @@ import Image from 'next/image'
 export function Header(){
     return(
         <div className='flex items-center justify-between mb-10'>
-            <Image src={logo} alt='logo'/>
+            <a href='/'><Image src={logo} alt='logo'/></a>
             <div className=''>
                 <ul className='flex gap-10 font-semibold text-2xl'>
-                    <a href=''>Inicio</a>
-                    <a href=''>Músicas</a>
-                    <a href=''>Playlsts</a>
+                    <a href='/'>Inicio</a>
+                    <a href='/music'>Músicas</a>
+                    <a href='/playlist'>Playlists</a>
                     <div className='flex gap-3'>
                         <Image src={search} alt='Pesquisar'/>
                         <input 
