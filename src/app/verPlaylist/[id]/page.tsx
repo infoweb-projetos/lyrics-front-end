@@ -1,12 +1,12 @@
-'use client'
-import { PlaylistcardProps } from '@/components/Playlistcards';
+import { PlaylistcardProps } from "@/components/Playlistcards";
+import { api } from "@/lib/axios";
 import { PlaylistData } from "../../../components/PlaylistData";
 
-export default function verPlaylist(){
+export default async function verPlaylist() {
 
-    return(
+    return (
         <div>
-            <PlaylistData />
+                <PlaylistData/>
         </div>
-    )
+    );
 }
