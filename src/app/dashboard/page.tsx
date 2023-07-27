@@ -1,6 +1,6 @@
 'use client'
 
-import { Playlistcard } from "@/components/Playlistcards";
+import { PlaylistCard } from "@/components/PlaylistCards";
 import { Songcard } from "@/components/Songcard";
 import { api } from "@/lib/axios";
 import { useEffect, useState } from "react";
@@ -49,7 +49,7 @@ export default function dashboard() {
             <div className="my-8 grid grid-cols-5 gap-3">
                 {playlists.slice(0, 4).map((playlist) => {
                     return (
-                        <Playlistcard key={playlist.id} cardImage={cardImage} description={playlist.description} name={playlist.name} />
+                        <PlaylistCard key={playlist.id} cardImage={cardImage} description={playlist.description} name={playlist.name} />
                     )
                 })}
             </div>
