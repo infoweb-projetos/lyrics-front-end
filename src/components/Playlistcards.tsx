@@ -9,9 +9,8 @@ export interface PlaylistcardProps{
     description?: string
 }
 
+
 export function Playlistcard({cardImage, name, description,id}: PlaylistcardProps){
-
-
     return(
         <Link href={`verPlaylist/${id}`}>
             <div className="max-w-[250px] max-h-[350px] mt-10">
