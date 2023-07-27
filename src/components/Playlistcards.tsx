@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export interface PlaylistcardProps{ 
     id?: string
-    cardImage: any
+    cardImage?: any
     name: string
     description: string
 }
