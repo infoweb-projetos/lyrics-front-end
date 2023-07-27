@@ -9,13 +9,14 @@ export default async function playlist(){
     const response = await api.get('/playlists')
     const data: PlaylistcardProps[] = response.data
 
+
     return(
         <div className="flex flex-col h-full">
             <Button add='Adicionar playlist' text='Playlist'/>
             <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {data.map((card) => {
                     return(
-                        <Playlistcard cardImage={cardImage} key={card.id} description={card.description} name={card.name}/>
+                        <Playlistcard key={card.id} id={card.id} cardImage={cardImage} description={card.description} name={card.name}/>
                     )
                 })}
             </div>
