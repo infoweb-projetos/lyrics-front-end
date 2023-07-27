@@ -7,9 +7,7 @@ export interface PlaylistcardProps{
     description: string
 }
 
-export function Playlistcard({cardImage, name, description}: PlaylistcardProps){
-
-    
+export function Playlistcard({cardImage, name, description}: PlaylistcardProps){ 
     return(
         <>
         <div className="max-w-[250px] max-h-[350px] mt-10">
