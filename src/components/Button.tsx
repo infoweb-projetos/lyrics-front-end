@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import plus from '../assets/plus.svg';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { api } from '@/lib/axios';
 import {X} from 'lucide-react'
 
@@ -25,10 +25,11 @@ export function Button({ add, text }: ButtonProps) {
     event.preventDefault()
 
     if(!name) return 
- 
+
     await api.post('/playlists',{
         name, description
     })
+
     alertText!.innerHTML = 'playlist criada com sucesso'
     setName('')
     setDescription('')
