@@ -1,6 +1,6 @@
 'use client'
 import { api } from "@/lib/axios"
-import { PlaylistcardProps } from "./Playlistcards"
+import { PlaylistcardProps } from "./PlaylistCards"
 import { useState } from "react"
 
 export function EditPlaylist({id}: PlaylistcardProps){

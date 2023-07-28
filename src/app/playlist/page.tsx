@@ -1,9 +1,8 @@
 import { Button } from "@/components/Button";
-import { Playlistcard } from "@/components/Playlistcards";
+import { PlaylistCard } from "@/components/PlaylistCards";
 import cardImage from '../../assets/card.jpeg'
 import {api} from '../../lib/axios'
-import {PlaylistcardProps} from '../../components/Playlistcards'
-import { RemovePlaylist } from "@/components/RemovePlaylist";
+import {PlaylistcardProps} from '../../components/PlaylistCards'
 import { EditPlaylist } from "@/components/EditPlaylist";
 
 export default async function playlist(){
@@ -19,9 +18,7 @@ export default async function playlist(){
                 {data.map((card) => {
                     return(
                         <div key={card.id}>
-                            <Playlistcard id={card.id} cardImage={cardImage} description={card.description} name={card.name}/>
-                            <RemovePlaylist id={card.id}/>
-                            <EditPlaylist id={card.id}/>
+                            <PlaylistCard id={card.id} cardImage={cardImage} description={card.description} name={card.name}/>
                         </div>
 
                     )
