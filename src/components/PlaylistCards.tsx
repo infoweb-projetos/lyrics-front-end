@@ -6,14 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export interface PlaylistcardProps{ 
-    id: string
+    id?: string
     cardImage?: any
     name?: string
     description?: string
 }
 
 
-export function PlaylistCard({cardImage, name, description,id}: PlaylistcardProps){
+export function PlaylistCard({cardImage, name, description, id}: PlaylistcardProps){
     
     function removePlaylist(){
         api.delete(`/playlists/?id=${id}`)
