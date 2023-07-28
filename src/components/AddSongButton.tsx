@@ -64,8 +64,8 @@ export function AddSongButton() {
                     <div>
                         <label>Selecione uma playlist</label>
                         <br />
-                        <select onChange={(e) => setIdPlaylist(e.target.value)} value={playlist_id}>
-                            <option value=""></option>
+                        <select className='border-2 w-full my-2' onChange={(e) => setIdPlaylist(e.target.value)} value={playlist_id}>
+                            <option disabled value="">Playlist</option>
                             {playlists.map((playlist) => {
                                 return (
                                     <option key={playlist.id} value={playlist.id}>

@@ -15,40 +15,21 @@ export interface PlaylistcardProps{
 
 export function PlaylistCard({cardImage, name, description, id}: PlaylistcardProps){
     
-    function removePlaylist(){
-        api.delete(`/playlists/?id=${id}`)
-    }
+
     
     return(
         <>
             <Link href={`verPlaylist/${id}`}>
-                <div className="max-w-full max-h-full mt-10">
+                <div className="py-5">
                     <Image src={cardImage} alt="card" width={250} height={250} className="rounded-xl"/>
                     <div className='flex items-center justify-between'>
                         <div>
                             <p className="font-medium text-2xl">{name}</p>
-                            <span>{description}</span>
+                            <span className='w-3'>{description}</span>
                         </div>
                     </div>
                 </div>
             </Link>
-            <div className='relative bottom-10 left-56'>
-                <DropdownMenu.Root>
-                    <DropdownMenu.Trigger asChild>
-                        <MoreVertical />
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Portal className='m-w-[100px]'>
-                        <DropdownMenu.Content className="bg-slate-300" sideOffset={5}>
-                            <DropdownMenu.Item className="p-2">
-                                Editar
-                            </DropdownMenu.Item>
-                            <DropdownMenu.Item className="p-2" onClick={removePlaylist}>
-                                Excluir
-                            </DropdownMenu.Item>
-                        </DropdownMenu.Content>
-                    </DropdownMenu.Portal>
-                </DropdownMenu.Root>
-            </div>
         </>
     )
 }

@@ -17,6 +17,7 @@ export function Button({ add, text }: ButtonProps) {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
 
+
   async function postData(event: FormEvent<HTMLFormElement>) {
     const alertText = document.getElementById('alertText')
 
@@ -26,8 +27,9 @@ export function Button({ add, text }: ButtonProps) {
 
     await api.post('/playlists', {
       name, description
+    }).then(() => {
+      window.location.reload();
     })
-
     alertText!.innerHTML = 'playlist criada com sucesso'
     setName('')
     setDescription('')

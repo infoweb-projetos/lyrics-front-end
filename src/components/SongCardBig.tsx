@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 interface SongcardBigProps {
     id: string
     name: string
-    playlist_id: string
+    playlist_id?: string
 }
 
 export function SongcardBig({ id, name, playlist_id }: SongcardBigProps) {
