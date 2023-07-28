@@ -15,7 +15,7 @@ export function Songcard({ id, name }: SongcardProps) {
 
     return (
         <>
-            <div className="border border-black rounded-lg p-6 max-w-[450px] flex justify-between items-center">
+            <div className="border border-black rounded-[15px] p-4 max-w-[450px] flex justify-between items-center">
                 <a href="">
                     <p className="font-medium text-xl">{name}</p>
                 </a>

@@ -47,7 +47,7 @@ export default function dashboard() {
 
             <h1 className="text-3xl font-semibold">Playlists</h1>
             <div className="my-8 grid grid-cols-5 gap-3">
-                {playlists.slice(0, 4).map((playlist) => {
+                {playlists.slice(0, 5).map((playlist) => {
                     return (
                         <PlaylistCard key={playlist.id} id={playlist.id} cardImage={cardImage} description={playlist.description} name={playlist.name} />
                     )

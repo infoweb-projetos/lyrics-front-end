@@ -5,7 +5,6 @@ import edit from '../assets/edit.svg';
 import trashCan from '../assets/trashCan.svg';
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/axios';
-import { useRouter } from '../../node_modules/next/router';
 import Link from '../../node_modules/next/link';
 
 type PlaylistcardProps = {

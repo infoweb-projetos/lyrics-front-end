@@ -31,19 +31,19 @@ export function SongcardBig({ id, name, playlist_id }: SongcardBigProps) {
             {loading ? (<p>Carregando...</p>) : (
                 <div className="border border-black rounded-lg p-6 flex justify-between items-center">
                     <a href="">
-                        <p className="font-medium text-xl">{name}</p>
+                        <p className="font-medium text-xl w-[300px]">{name}</p>
                     </a>
-                    <div>
+                    <div className='text-left w-[200px]'>
                         <p>{playlistName}</p>
                     </div>
                     <div className='flex justify-center items-center'>
-                        <p className="p-2">Tom: cm7</p>
+                        <p className="p-2 mr-4">Tom: cm7</p>
                         <DropdownMenu.Root>
                             <DropdownMenu.Trigger asChild>
                                 <MoreVertical />
                             </DropdownMenu.Trigger>
 
-                            <DropdownMenu.Portal className='m-w-[100px]'>
+                            <DropdownMenu.Portal>
                                 <DropdownMenu.Content className="bg-slate-300" sideOffset={5}>
                                     <DropdownMenu.Item className="p-2">
                                         Editar
