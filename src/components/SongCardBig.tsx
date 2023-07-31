@@ -4,14 +4,10 @@ import { MoreVertical } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { api } from '@/lib/axios';
 import { useEffect, useState } from 'react';
+import {songCardProps} from '../types/playlistCardProps'
 
-interface SongcardBigProps {
-    id: string
-    name: string
-    playlist_id: string
-}
+export function SongcardBig({ id, name, playlist_id }: songCardProps) {
 
-export function SongcardBig({ id, name, playlist_id }: SongcardBigProps) {
     const [playlistName, setPlaylistName] = useState('teste')
     const [loading, setLoading] = useState(true);
 
@@ -20,7 +16,7 @@ export function SongcardBig({ id, name, playlist_id }: SongcardBigProps) {
             setPlaylistName(response.data.playlist.name);
             setLoading(false);
         })
-    }, [])
+    })
 
     function deleteSong() {
         api.delete(`/songs/?id=${id}`)

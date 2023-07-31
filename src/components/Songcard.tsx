@@ -1,13 +1,10 @@
 import { MoreVertical } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { api } from '@/lib/axios';
+import {songCardProps} from '../types/playlistCardProps'
 
-export interface SongcardProps {
-    id: string
-    name: string
-}
 
-export function Songcard({ id, name }: SongcardProps) {
+export function Songcard({ id, name }: songCardProps) {
 
     function deleteSong() {
         api.delete(`/songs/?id=${id}`)

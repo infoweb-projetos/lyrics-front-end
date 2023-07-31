@@ -5,22 +5,11 @@ import { Songcard } from "@/components/Songcard";
 import { api } from "@/lib/axios";
 import { useEffect, useState } from "react";
 import cardImage from '../../assets/card.jpeg';
+import {playlistCardProps,songCardProps} from '../../types/playlistCardProps'
 
-type SongcardProps = {
-    id: string
-    name: string
-}[]
-
-type PlaylistcardProps = {
-    id?: string
-    cardImage?: any
-    name: string
-    description: string
-}[]
-
-export default function dashboard() {
-    const [songs, setSongs] = useState<SongcardProps>([])
-    const [playlists, setPlaylists] = useState<PlaylistcardProps>([])
+export default function Dashboard() {
+    const [songs, setSongs] = useState<songCardProps[]>([])
+    const [playlists, setPlaylists] = useState<playlistCardProps[]>([])
 
     useEffect(() => {
         api.get('/songs').then(response => {

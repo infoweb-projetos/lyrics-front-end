@@ -2,13 +2,12 @@ import { Button } from "@/components/Button";
 import { PlaylistCard } from "@/components/PlaylistCards";
 import cardImage from '../../assets/card.jpeg'
 import {api} from '../../lib/axios'
-import {PlaylistcardProps} from '../../components/PlaylistCards'
-import { EditPlaylist } from "@/components/EditPlaylist";
+import { playlistCardProps } from "@/types/playlistCardProps";
 
 export default async function playlist(){
 
     const response = await api.get('/playlists')
-    const data: PlaylistcardProps[] = response.data
+    const data: playlistCardProps[] = response.data
 
 
     return(
