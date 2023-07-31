@@ -4,24 +4,11 @@ import { SongcardBig } from "@/components/SongCardBig";
 import { api } from "@/lib/axios";
 import { useEffect, useState } from "react";
 import { PlaylistData } from "../../../components/PlaylistData";
-
-  type PlaylistcardProps = {
-    playlist: {
-      id: string;
-      name: string;
-      description?: string;
-    },
-    Songs: SongcardProps[];
-  };
-interface SongcardProps {
-    id: string
-    name: string
-    playlist_id: string
-}
+import {playlistDataProps} from '../../../types/playlistProps'
 
 export default function VerPlaylist() {
     const [id, setId] = useState('');
-    const [playlist, setPlaylist] = useState<PlaylistcardProps | null>(null);
+    const [playlist, setPlaylist] = useState<playlistDataProps | null>(null);
 
     useEffect(() => {
         const pathParts = window.location.pathname.split('/');

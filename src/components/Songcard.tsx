@@ -1,13 +1,10 @@
 import { MoreVertical } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { api } from '@/lib/axios';
+import {songCardProps} from '../types/songProps'
 
-export interface SongcardProps {
-    id: string
-    name: string
-}
 
-export function Songcard({ id, name }: SongcardProps) {
+export function Songcard({ id, name }: songCardProps) {
 
     function deleteSong() {
         api.delete(`/songs/?id=${id}`)
@@ -15,7 +12,7 @@ export function Songcard({ id, name }: SongcardProps) {
 
     return (
         <>
-            <div className="border border-black rounded-[15px] p-4 max-w-[450px] flex justify-between items-center">
+            <div className="border border-black rounded-lg p-6 max-w-[450px] flex justify-between items-center">
                 <a href="">
                     <p className="font-medium text-xl">{name}</p>
                 </a>

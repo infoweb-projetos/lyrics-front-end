@@ -5,22 +5,13 @@ import { Songcard } from "@/components/Songcard";
 import { api } from "@/lib/axios";
 import { useEffect, useState } from "react";
 import cardImage from '../../assets/card.jpeg';
+import {playlistCardProps} from '../../types/playlistProps'
+import {songCardProps} from '../../types/songProps'
 
-type SongcardProps = {
-    id: string
-    name: string
-}[]
 
-type PlaylistcardProps = {
-    id?: string
-    cardImage?: any
-    name: string
-    description: string
-}[]
-
-export default function dashboard() {
-    const [songs, setSongs] = useState<SongcardProps>([])
-    const [playlists, setPlaylists] = useState<PlaylistcardProps>([])
+export default function Dashboard() {
+    const [songs, setSongs] = useState<songCardProps[]>([])
+    const [playlists, setPlaylists] = useState<playlistCardProps[]>([])
 
     useEffect(() => {
         api.get('/songs').then(response => {
@@ -47,7 +38,7 @@ export default function dashboard() {
 
             <h1 className="text-3xl font-semibold">Playlists</h1>
             <div className="my-8 grid grid-cols-5 gap-3">
-                {playlists.slice(0, 5).map((playlist) => {
+                {playlists.slice(0, 4).map((playlist) => {
                     return (
                         <PlaylistCard key={playlist.id} id={playlist.id} cardImage={cardImage} description={playlist.description} name={playlist.name} />
                     )

@@ -4,15 +4,11 @@ import { AddSongButton } from "@/components/AddSongButton";
 import { SongcardBig } from "@/components/SongCardBig";
 import { api } from "@/lib/axios";
 import { useEffect, useState } from "react";
+import {songCardProps} from '../../types/songProps'
 
-type SongcardProps = {
-    id: string
-    name: string
-    playlist_id: string
-}[]
 
-export default function musics() {
-    const [songs, setSongs] = useState<SongcardProps>([])
+export default function Musics() {
+    const [songs, setSongs] = useState<songCardProps[]>([])
 
     useEffect(() => {
         api.get('/songs').then(response => {

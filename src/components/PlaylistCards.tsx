@@ -1,18 +1,8 @@
-'use client'
 import Image from "next/image";
 import Link from "next/link";
+import { playlistCardProps } from "@/types/playlistProps";
 
-export interface PlaylistcardProps{ 
-    id?: string
-    cardImage?: any
-    name?: string
-    description?: string
-}
-
-
-export function PlaylistCard({cardImage, name, description, id}: PlaylistcardProps){
-    
-
+export function PlaylistCard({cardImage, name, description, id}: playlistCardProps){
     
     return(
         <>

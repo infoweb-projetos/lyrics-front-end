@@ -6,23 +6,11 @@ import trashCan from '../assets/trashCan.svg';
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/axios';
 import Link from '../../node_modules/next/link';
+import {playlistDataProps, playlistIdProps} from '../types/playlistProps'
 
-type PlaylistcardProps = {
-  playlist: {
-    id: string;
-    name: string;
-    description?: string;
-  },
-  Songs: [];
-};
+export function PlaylistData({ id }: playlistIdProps) {
 
-type PlaylistDataProps = {
-  id: string;
-};
-
-export function PlaylistData({ id }: PlaylistDataProps) {
-
-  const [playlist, setPlaylist] = useState<PlaylistcardProps | null>(null);
+  const [playlist, setPlaylist] = useState<playlistDataProps | null>(null);
 
   function removePlaylist(){
     api.delete(`/playlists/?id=${id}`)
