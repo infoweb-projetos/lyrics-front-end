@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { playlistCardProps } from "@/types/playlistProps";
+import { playlistProps } from "@/types/playlistProps";
 
-export function PlaylistCard({cardImage, name, description, id}: playlistCardProps){
-    
+export function PlaylistCard({cardImage, name, description, id}: playlistProps){
     return(
         <>
-            <Link className="max-h-[250px]" href={`verPlaylist/${id}`}>
+            <Link className="max-h-[250px]" href={`playlist/${id}`}>
                 <div className="py-5 max-w-[250px]">
                     <Image src={cardImage} alt="card" width={250} height={250} className="rounded-[20px]"/>
                     <div className='flex items-center justify-between'>

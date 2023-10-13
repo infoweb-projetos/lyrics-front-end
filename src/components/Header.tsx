@@ -1,17 +1,20 @@
+'use client'
+
+import Link from 'next/link'
 import logo from '../assets/logo.svg'
 import profile from '../assets/profile.svg'
 import search from '../assets/search.svg'
-
 import Image from 'next/image'
+
 export function Header(){
     return(
         <div className='flex items-center justify-between mb-10'>
-            <a href='/'><Image src={logo} alt='logo'/></a>
+            <Image src={logo} alt='logo'/>
             <div className=''>
                 <ul className='flex gap-10 font-semibold text-2xl'>
-                    <a href='/dashboard'>Inicio</a>
-                    <a href='/musics'>Músicas</a>
-                    <a href='/playlist'>Playlists</a>
+                    <Link href='/dashboard'>Inicio</Link>
+                    <Link href='/songs'>Músicas</Link>
+                    <Link href='/playlists'>Playlists</Link>
                     <div className='flex gap-3'>
                         <Image src={search} alt='Pesquisar'/>
                         <input 

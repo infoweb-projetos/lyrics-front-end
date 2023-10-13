@@ -1,14 +1,13 @@
 'use client'
 
-import { AddSongButton } from "@/components/AddSongButton";
-import { SongcardBig } from "@/components/SongCardBig";
 import { api } from "@/lib/axios";
+import { AddSongButton } from "@/components/AddSongButton";
+import { SongCardBig } from "@/components/SongCardBig";
+import { songProps } from "@/types/songProps";
 import { useEffect, useState } from "react";
-import {songCardProps} from '../../types/songProps'
 
-
-export default function Musics() {
-    const [songs, setSongs] = useState<songCardProps[]>([])
+export default function Songs() {
+    const [songs, setSongs] = useState<songProps[]>([]);
 
     useEffect(() => {
         api.get('/songs').then(response => {
@@ -25,7 +24,7 @@ export default function Musics() {
             <div className="my-8 grid grid-cols-1 gap-3">
                 {songs.map((song) => {
                     return (
-                        <SongcardBig key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} />
+                        <SongCardBig key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} />
                     )
                 })}
             </div>

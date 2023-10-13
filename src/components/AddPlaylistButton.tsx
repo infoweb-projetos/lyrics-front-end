@@ -7,16 +7,9 @@ import { FormEvent, useState } from 'react';
 import { api } from '@/lib/axios';
 import { X } from 'lucide-react'
 
-interface ButtonProps {
-  add: string;
-  text: string
-
-}
-
-export function Button({ add, text }: ButtonProps) {
+export function AddPlaylistButton() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-
 
   async function postData(event: FormEvent<HTMLFormElement>) {
     const alertText = document.getElementById('alertText')
@@ -30,19 +23,19 @@ export function Button({ add, text }: ButtonProps) {
     }).then(() => {
       window.location.reload();
     })
-    alertText!.innerHTML = 'playlist criada com sucesso'
+    alertText!.innerHTML = 'Playlist criada com sucesso'
     setName('')
     setDescription('')
   }
 
   return (
     <div className="flex justify-between mt-20 border-b-2 border-gray-500 pb-3">
-      <span className="text-4xl font-semibold">{text}</span>
+      <span className="text-4xl font-semibold">Playlist</span>
       <AlertDialog.Root>
         <AlertDialog.Trigger asChild>
           <button className='flex items-center'>
             <Image src={plus} alt='plus' className='relative left-8' />
-            <span className='bg-darkBlue p-3 pl-11 text-white rounded-lg'>{add}</span>
+            <span className='bg-darkBlue p-3 pl-11 text-white rounded-lg'>Adicionar playlist</span>
           </button>
         </AlertDialog.Trigger>
         <AlertDialog.Overlay className='fixed inset-0 bg-black bg-opacity-60' />

@@ -7,16 +7,12 @@ import { FormEvent, useEffect, useState } from 'react';
 import { api } from '@/lib/axios';
 import { X } from 'lucide-react'
 import React from 'react';
-
-type PlaylistcardProps = {
-    id: string
-    name: string
-}[]
+import { playlistProps } from '@/types/playlistProps';
 
 export function AddSongButton() {
     const [name, setName] = useState('');
     const [playlist_id, setIdPlaylist] = useState<string>('');
-    const [playlists, setPlaylists] = useState<PlaylistcardProps>([]);
+    const [playlists, setPlaylists] = useState<playlistProps[]>([]);
 
     useEffect(() => {
         api.get('/playlists').then(response => {
@@ -32,7 +28,9 @@ export function AddSongButton() {
         if (!name) return;
         if (!playlist_id) return;
 
-        await api.post('/songs', { name, playlist_id })
+        await api.post('/songs', { name, playlist_id }).then(() => {
+            window.location.reload();
+        })
 
         alertText!.innerHTML = 'Música criada com sucesso'
         setName('');

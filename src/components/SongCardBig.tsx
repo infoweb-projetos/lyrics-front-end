@@ -1,25 +1,24 @@
 'use client'
 
+import { api } from '@/lib/axios';
 import { MoreVertical } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { api } from '@/lib/axios';
 import { useEffect, useState } from 'react';
-import {songCardProps} from '../types/songProps'
+import {songProps} from '../types/songProps'
 
-export function SongcardBig({ id, name, playlist_id }: songCardProps) {
-
-    const [playlistName, setPlaylistName] = useState('teste')
+export function SongCardBig({ id, name, playlist_id }: songProps) {
+    const [playlistName, setPlaylistName] = useState('')
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        api.get(`/playlists/?id=${playlist_id}`).then(response => {
+        api.get(`/playlists/${playlist_id}`).then(response => {
             setPlaylistName(response.data.playlist.name);
             setLoading(false);
         })
-    })
+    }, [])
 
     function deleteSong() {
-        api.delete(`/songs/?id=${id}`)
+        api.delete(`/songs/${id}`)
     }
 
     return (
