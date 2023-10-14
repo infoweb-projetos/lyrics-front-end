@@ -3,6 +3,13 @@ import { DropdownUD } from './DropdownUD';
 import {songProps} from '../types/songProps'
 
 export async function SongCard({id, name, playlist_id, cardWidth}: songProps) {
+    if(!playlist_id) {
+        return (
+            <div>
+                <p>Não há músicas</p>
+            </div>
+        )
+    }
 
     const response = await api.get(`/playlists/${playlist_id}`)
     const playlistName = response.data.playlist.name
