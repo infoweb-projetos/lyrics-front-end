@@ -1,10 +1,7 @@
-'use client'
-
 import { api } from "@/lib/axios";
-import { useState } from "react";
 import { playlistProps } from "@/types/playlistProps";
-import { PlaylistView } from "@/app/(app)/playlist/client-components/PlaylistView";
-import { SongCard } from "../../dashboard/server-components/SongCard";
+import { PlaylistView } from "../components/PlaylistView";
+import { SongCard } from "../../../../components/SongCard";
 
 interface PlaylistIdProps {
   params: {
@@ -12,24 +9,18 @@ interface PlaylistIdProps {
   }
 }
 
-export default function Playlist({params}: PlaylistIdProps) {
-  const id = params.id;
-  const [playlist, setPlaylist] = useState<playlistProps>();
-
-  if (id !== '') {
-    api.get(`/playlists/${id}`).then(response => {
-      setPlaylist(response.data);
-    });
-  }
+export default async function Playlist({params}: PlaylistIdProps) {
+  const ResponsePlaylist = await api.get(`/playlists/${params.id}`)
+  const playlist: playlistProps = ResponsePlaylist.data
 
   if (playlist && playlist.songs) {
     return (
       <div>
-          <PlaylistView id={id} />
+          <PlaylistView id={params.id} />
           <div className="my-8 grid grid-cols-1 gap-3">
               {playlist.songs.map((song) => {
                   return (
-                    <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id}/>
+                    <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={false}/>
                   )
               })}
           </div>

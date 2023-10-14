@@ -7,7 +7,7 @@ import { FormEvent, useState } from 'react';
 import { api } from '@/lib/axios';
 import { X } from 'lucide-react'
 
-export function AddPlaylistButton() {
+export function PlaylistCreate() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
 

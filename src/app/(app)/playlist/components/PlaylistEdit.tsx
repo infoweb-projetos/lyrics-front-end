@@ -1,16 +1,15 @@
 'use client'
 
 import { api } from "@/lib/axios"
-import { playlistProps } from "@/types/playlistProps"
 import { useState } from "react"
+import { playlistProps } from "@/types/playlistProps"
 
 export function PlaylistEdit({id}: playlistProps){
-
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
 
-    async function editPlaylist(){
-        await api.post(`/playlists/${id}`,{
+    function editPlaylist(){
+        api.post(`/playlists/${id}`,{
             name,description
         })
     }

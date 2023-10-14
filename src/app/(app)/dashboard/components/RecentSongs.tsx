@@ -1,5 +1,5 @@
 import { songProps } from "@/types/songProps"
-import { SongCard } from "@/app/(app)/dashboard/server-components/SongCard"
+import { SongCard } from "../../../../components/SongCard"
 
 interface RecentSongsProps {
     songs: songProps[];
@@ -12,7 +12,7 @@ export default function RecentSongs({songs}: RecentSongsProps) {
             <div className="my-8 grid grid-cols-3 gap-3">
                 {songs.slice(0, 6).map((song) => {
                     return (
-                        <SongCard key={song.id} id={song.id} name={song.name} cardWidth={false}/>
+                        <SongCard key={song.id} id={song.id} name={song.name} cardWidth={true}/>
                     )
                 })}
             </div>

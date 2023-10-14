@@ -1,25 +1,17 @@
-'use client'
-
 import { api } from "@/lib/axios";
-import { AddSongButton } from "@/components/AddSongButton";
-import { SongCard } from "../dashboard/server-components/SongCard";
+import { SongCreate } from "@/app/(app)/songs/components/SongCreate";
+import { SongCard } from "@/components/SongCard";
 import { songProps } from "@/types/songProps";
-import { useEffect, useState } from "react";
 
-export default function Songs() {
-    const [songs, setSongs] = useState<songProps[]>([]);
-
-    useEffect(() => {
-        api.get('/songs').then(response => {
-            setSongs(response.data)
-        })
-    }, [])
+export default async function Songs() {
+    const ResponseSongs = await api.get('/songs')
+    const songs: songProps[] = ResponseSongs.data
 
     return (
         <div>
             <div className="flex justify-between mt-20 border-b-2 border-gray-500 pb-3">
                 <span className="text-3xl font-semibold">Músicas</span>
-                <AddSongButton />
+                <SongCreate />
             </div>
             <div className="my-8 grid grid-cols-1 gap-3">
                 {songs.map((song) => {

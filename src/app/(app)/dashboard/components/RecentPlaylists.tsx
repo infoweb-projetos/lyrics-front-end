@@ -1,4 +1,4 @@
-import { PlaylistCard } from "@/app/(app)/dashboard/server-components/PlaylistCard";
+import { PlaylistCard } from '../../../../components/PlaylistCard';
 import { playlistProps } from "@/types/playlistProps";
 import cardImage from '../../../../assets/card.jpeg'
 

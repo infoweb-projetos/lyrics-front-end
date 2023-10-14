@@ -9,7 +9,7 @@ import { X } from 'lucide-react'
 import React from 'react';
 import { playlistProps } from '@/types/playlistProps';
 
-export function AddSongButton() {
+export function SongCreate() {
     const [name, setName] = useState('');
     const [playlist_id, setIdPlaylist] = useState<string>('');
     const [playlists, setPlaylists] = useState<playlistProps[]>([]);

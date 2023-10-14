@@ -1,6 +1,6 @@
 import { api } from '@/lib/axios';
-import { DropdownUD } from '../../../../components/DropdownUD';
-import {songProps} from '../../../../types/songProps'
+import { DropdownUD } from './DropdownUD';
+import {songProps} from '../types/songProps'
 
 export async function SongCard({id, name, playlist_id, cardWidth}: songProps) {
 

@@ -1,8 +1,8 @@
 import { api } from "@/lib/axios";
 import { songProps } from "@/types/songProps";
 import { playlistProps } from "@/types/playlistProps";
-import RecentSongs from "./server-components/RecentSongs";
-import RecentPlaylists from "./server-components/RecentPlaylists";
+import RecentSongs from "./components/RecentSongs";
+import RecentPlaylists from "./components/RecentPlaylists";
 
 export default async function Dashboard() {
     const ResponseSongs = await api.get('/songs')
