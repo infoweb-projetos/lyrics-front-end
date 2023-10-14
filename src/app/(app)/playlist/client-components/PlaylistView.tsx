@@ -2,14 +2,14 @@
 
 import { api } from '@/lib/axios';
 import { useEffect, useState } from 'react';
-import Link from '../../node_modules/next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import edit from '../assets/edit.svg';
 import cardImage from '../assets/card.jpeg';
 import trashCan from '../assets/trashCan.svg';
 import { playlistProps } from '@/types/playlistProps';
 
-export function PlaylistData({ id }: playlistProps) {
+export function PlaylistView({ id }: playlistProps) {
 
   const [playlist, setPlaylist] = useState<playlistProps | null>(null);
 

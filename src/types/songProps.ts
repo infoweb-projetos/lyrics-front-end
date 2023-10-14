@@ -3,4 +3,5 @@ export interface songProps {
     name: string
     lyric?: string
     playlist_id?: string
+    cardWidth?: boolean
 }

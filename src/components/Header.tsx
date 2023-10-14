@@ -1,10 +1,8 @@
-'use client'
-
 import Link from 'next/link'
-import logo from '../assets/logo.svg'
-import profile from '../assets/profile.svg'
-import search from '../assets/search.svg'
 import Image from 'next/image'
+import logo from '../assets/logo.svg'
+import search from '../assets/search.svg'
+import profile from '../assets/profile.svg'
 
 export function Header(){
     return(

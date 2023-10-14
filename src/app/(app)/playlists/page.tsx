@@ -4,7 +4,7 @@ import {api} from '../../../lib/axios';
 import cardImage from '../../../assets/card.jpeg';
 import { AddPlaylistButton } from "@/components/AddPlaylistButton";
 import { playlistProps } from "@/types/playlistProps";
-import { PlaylistCard } from "@/components/PlaylistCard";
+import { PlaylistCard } from "@/app/(app)/dashboard/server-components/PlaylistCard";
 import { useEffect, useState } from 'react';
 
 export default function Playlists(){

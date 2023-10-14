@@ -2,7 +2,7 @@
 
 import { api } from "@/lib/axios";
 import { AddSongButton } from "@/components/AddSongButton";
-import { SongCardBig } from "@/components/SongCardBig";
+import { SongCard } from "../dashboard/server-components/SongCard";
 import { songProps } from "@/types/songProps";
 import { useEffect, useState } from "react";
 
@@ -24,7 +24,7 @@ export default function Songs() {
             <div className="my-8 grid grid-cols-1 gap-3">
                 {songs.map((song) => {
                     return (
-                        <SongCardBig key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} />
+                        <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={true}/>
                     )
                 })}
             </div>

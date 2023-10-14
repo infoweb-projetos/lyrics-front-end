@@ -4,7 +4,7 @@ import { api } from "@/lib/axios"
 import { playlistProps } from "@/types/playlistProps"
 import { useState } from "react"
 
-export function EditPlaylist({id}: playlistProps){
+export function PlaylistEdit({id}: playlistProps){
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')

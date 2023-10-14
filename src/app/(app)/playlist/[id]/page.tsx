@@ -3,8 +3,8 @@
 import { api } from "@/lib/axios";
 import { useState } from "react";
 import { playlistProps } from "@/types/playlistProps";
-import { PlaylistData } from "@/components/PlaylistData";
-import { SongCardBig } from "@/components/SongCardBig";
+import { PlaylistView } from "@/app/(app)/playlist/client-components/PlaylistView";
+import { SongCard } from "../../dashboard/server-components/SongCard";
 
 interface PlaylistIdProps {
   params: {
@@ -25,11 +25,11 @@ export default function Playlist({params}: PlaylistIdProps) {
   if (playlist && playlist.songs) {
     return (
       <div>
-          <PlaylistData id={id} />
+          <PlaylistView id={id} />
           <div className="my-8 grid grid-cols-1 gap-3">
               {playlist.songs.map((song) => {
                   return (
-                    <SongCardBig key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id}/>
+                    <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id}/>
                   )
               })}
           </div>
