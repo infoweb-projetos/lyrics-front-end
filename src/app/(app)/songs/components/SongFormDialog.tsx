@@ -74,7 +74,7 @@ export default function SongFormDialog({playlists}: SongFormDialogProps) {
                             label="Playlist"
                         >
                             <MenuItem value="">
-                                <em>None</em>
+                                <em>Nenhuma</em>
                             </MenuItem>
                             {playlists.map((playlist) => {
                                 return (
