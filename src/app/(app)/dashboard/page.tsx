@@ -19,7 +19,7 @@ export default async function Dashboard() {
                 <div className="my-8 grid grid-cols-3 gap-3">
                     {songs.slice(0, 6).map((song) => {
                         return (
-                            <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={true}/>
+                            <SongCard key={song.id} id={song.id} name={song.name} cardWidth={true}/>
                         )
                     })}
                 </div>

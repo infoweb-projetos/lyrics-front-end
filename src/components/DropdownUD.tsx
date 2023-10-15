@@ -1,38 +1,57 @@
 'use client'
 
-import { api } from '@/lib/axios';
-import { MoreVertical } from 'lucide-react';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { useState } from 'react';
+import DeleteConfirmation from './DeleteConfirmation';
+
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface DropdownUDProps {
     id: string
 }
 
 export function DropdownUD({id}: DropdownUDProps) {
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
 
-    function deleteSong() {
-        api.delete(`/songs/${id}`)
-    }
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget)
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-    function updateSong() {}
+  return (
+    <div>
+      <IconButton
+        aria-label="more"
+        id="long-button"
+        aria-controls={open ? 'long-menu' : undefined}
+        aria-expanded={open ? 'true' : undefined}
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <MoreVertIcon />
+      </IconButton>
 
-    return (
-        <DropdownMenu.Root>
-            <DropdownMenu.Trigger asChild>
-                <MoreVertical />
-            </DropdownMenu.Trigger>
-
-            <DropdownMenu.Portal className='m-w-[100px]'>
-                <DropdownMenu.Content className="bg-slate-300" sideOffset={5}>
-                    <DropdownMenu.Item className="p-2" onClick={updateSong}>
-                        Editar
-                    </DropdownMenu.Item>
-
-                    <DropdownMenu.Item className="p-2" onClick={deleteSong}>
-                        Excluir
-                    </DropdownMenu.Item>
-                </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-        </DropdownMenu.Root>
-    )
+      <Menu
+        id="long-menu"
+        MenuListProps={{
+          'aria-labelledby': 'long-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+      >
+        <MenuItem>
+            Editar
+        </MenuItem>
+        <MenuItem>
+            <DeleteConfirmation id={id}/>
+        </MenuItem>
+      </Menu>
+    </div>
+  );
 }
