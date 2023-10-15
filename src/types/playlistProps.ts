@@ -1,9 +1,9 @@
 import {songProps} from './songProps'
 
 export interface playlistProps { 
-    id?: string
+    id: string
     name?: string
     description?: string
-    songs?: songProps[]
+    Songs?: songProps[]
     cardImage?: any
 }

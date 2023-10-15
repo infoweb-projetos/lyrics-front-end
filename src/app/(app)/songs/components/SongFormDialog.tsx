@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react';
-import Image from 'next/image';
-import plus from '../../../../assets/plus.svg';
 import { submitData } from './submitData';
 import { playlistProps } from '@/types/playlistProps';
 
@@ -16,6 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import AddIcon from '@mui/icons-material/Add';
 
 interface SongFormDialogProps{
     playlists: playlistProps[]
@@ -47,7 +46,7 @@ export default function SongFormDialog({playlists}: SongFormDialogProps) {
     return(
         <div>
             <button className='flex items-center' onClick={handleClickOpen}>
-                <Image src={plus} alt='plus' className='relative left-8' />
+                <AddIcon className='relative left-8' sx={{color: 'white'}}/>
                 <span className='bg-darkBlue p-3 pl-11 text-white rounded-lg'>Adicionar música</span>
             </button>
             <Dialog open={open} onClose={handleClose}>
@@ -79,7 +78,7 @@ export default function SongFormDialog({playlists}: SongFormDialogProps) {
                             </MenuItem>
                             {playlists.map((playlist) => {
                                 return (
-                                    <MenuItem value={playlist.id}>
+                                    <MenuItem value={playlist.id} key={playlist.id}>
                                         {playlist.name}
                                     </MenuItem>
                                 );

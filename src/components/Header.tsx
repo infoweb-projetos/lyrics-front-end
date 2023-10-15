@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../assets/logo.svg'
-import search from '../assets/search.svg'
-import profile from '../assets/profile.svg'
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export function Header(){
     return(
@@ -14,14 +14,18 @@ export function Header(){
                     <Link href='/songs'>Músicas</Link>
                     <Link href='/playlists'>Playlists</Link>
                     <div className='flex gap-3'>
-                        <Image src={search} alt='Pesquisar'/>
+                        <SearchIcon sx={{
+                            fontSize: '30px',
+                        }}/>
                         <input 
                             className='w-40 placeholder-black'
                             placeholder='Pesquisar'/>
                     </div>
                 </ul>
             </div>
-            <Image src={profile} alt='profile'/>
+            <AccountCircleIcon sx={{
+                fontSize: '60px',
+            }} />
         </div>
     )
 }

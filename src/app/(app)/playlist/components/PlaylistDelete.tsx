@@ -1,17 +1,22 @@
 'use client'
 
-import { api } from "@/lib/axios"
 import { playlistProps } from "@/types/playlistProps"
+
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export function PlaylistDelete({id}: playlistProps){
 
     function deletePlaylist(){
-        api.delete(`/playlists/${id}`)
+        window.alert(`Função delete id: ${id}`)
+        // api.delete(`/playlists/${id}`)
     }
 
     return (
         <div>
-            <button onClick={deletePlaylist}>Excluir playlist</button>
+            <IconButton aria-label="delete" onClick={deletePlaylist}>
+                <DeleteIcon />
+            </IconButton>
         </div>
     )
 }

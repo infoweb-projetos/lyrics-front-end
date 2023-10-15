@@ -1,30 +1,45 @@
 import { api } from "@/lib/axios";
+import Image from 'next/image';
+import cardImage from '../../../../assets/card.jpeg';
 import { playlistProps } from "@/types/playlistProps";
-import { PlaylistView } from "../components/PlaylistView";
+import { songProps } from "@/types/songProps";
+import { PlaylistEdit } from "../components/PlaylistEdit";
+import { PlaylistDelete } from "../components/PlaylistDelete";
 import { SongCard } from "../../../../components/SongCard";
 
-interface PlaylistIdProps {
+interface IdProps {
   params: {
     id: string
   }
 }
 
-export default async function Playlist({params}: PlaylistIdProps) {
+export default async function Playlist({params}: IdProps) {
   const ResponsePlaylist = await api.get(`/playlists/${params.id}`)
-  const playlist: playlistProps = ResponsePlaylist.data
+  const playlist: playlistProps = ResponsePlaylist.data.playlist
+  const songs: songProps[] = ResponsePlaylist.data.Songs
 
-  if (playlist && playlist.songs) {
-    return (
-      <div>
-          <PlaylistView id={params.id} />
-          <div className="my-8 grid grid-cols-1 gap-3">
-              {playlist.songs.map((song) => {
-                  return (
-                    <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={false}/>
-                  )
-              })}
-          </div>
-      </div>
-    );
-  }
+  return (
+    <div>
+        <div className='flex items-center mt-20'>
+            <Image src={cardImage} alt='' className='rounded-lg' width={300} height={300} />
+            <div className='ml-6'>
+                <div className='flex items-center mb-1 gap-4'>
+                    <p className='text-4xl font-semibold'>{playlist.name}</p>
+                    <PlaylistEdit id={playlist.id}/>
+                    <PlaylistDelete id={playlist.id}/>
+                </div>
+                <p className='mb-6'>{`${songs.length} Músicas`}</p>
+                <p>{playlist.description}</p>
+            </div>
+        </div>
+        
+        <div className="my-8 grid grid-cols-1 gap-3">
+            {songs.map((song) => {
+                return (
+                  <SongCard key={song.id} id={song.id} name={song.name} cardWidth={false}/>
+                )
+            })}
+        </div>
+    </div>
+  );
 }

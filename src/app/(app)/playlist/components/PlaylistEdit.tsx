@@ -1,24 +1,27 @@
 'use client'
 
-import { api } from "@/lib/axios"
 import { useState } from "react"
 import { playlistProps } from "@/types/playlistProps"
+import { editPlaylist } from "@/operations/editPlaylist";
+
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
 
 export function PlaylistEdit({id}: playlistProps){
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
+    const [newName, setNewName] = useState('')
+    const [newDescription, setNewDescription] = useState('')
 
-    function editPlaylist(){
-        api.post(`/playlists/${id}`,{
-            name,description
-        })
+    function confirmation() {
+        editPlaylist(id, newName, newDescription);
     }
     
     return (
         <div>
-            <input type='text' onChange={e => setName(e.target.value)} className='bg-black/50 p-2 w-full mb-7 rounded-md'/>
-            <input type='text' onChange={e => setDescription(e.target.value)} className='bg-black/50 p-2 w-full mb-7 rounded-md'/>
-            <button onClick={editPlaylist}>Editar playlist</button>
+            {/* <input type='text' onChange={e => setNewName(e.target.value)} autoFocus />
+            <input type='text' onChange={e => setNewDescription(e.target.value)} /> */}
+            <IconButton aria-label="delete" onClick={confirmation}>
+                <EditIcon />
+            </IconButton>
         </div>
     )
 }

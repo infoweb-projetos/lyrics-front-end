@@ -1,8 +1,6 @@
 'use client'
 
 import { useState } from 'react';
-import Image from 'next/image';
-import plus from '../../../../assets/plus.svg';
 import { submitData } from './submitData';
 
 import Button from '@mui/material/Button';
@@ -11,6 +9,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import AddIcon from '@mui/icons-material/Add';
 
 
 export default function PlaylistFormDialog() {
@@ -35,7 +34,7 @@ export default function PlaylistFormDialog() {
     return (
         <div>
             <button className='flex items-center' onClick={handleClickOpen}>
-                <Image src={plus} alt='plus' className='relative left-8' />
+                <AddIcon className='relative left-8' sx={{color: 'white'}}/>
                 <span className='bg-darkBlue p-3 pl-11 text-white rounded-lg'>Adicionar playlist</span>
             </button>
 

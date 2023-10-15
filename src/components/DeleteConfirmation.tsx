@@ -25,7 +25,6 @@ export default function DeleteConfirmation({id}: DeleteConfirmationProps) {
 
   function confirmation() {
     deleteSong(id);
-    handleClose();
   }
 
   return (
