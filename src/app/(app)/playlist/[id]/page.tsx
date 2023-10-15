@@ -3,9 +3,12 @@ import Image from 'next/image';
 import cardImage from '../../../../assets/card.jpeg';
 import { playlistProps } from "@/types/playlistProps";
 import { songProps } from "@/types/songProps";
+import { SongCard } from "@/components/SongCard";
 import { PlaylistEdit } from "../components/PlaylistEdit";
-import { PlaylistDelete } from "../components/PlaylistDelete";
-import { SongCard } from "../../../../components/SongCard";
+
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteConfirmation from "@/components/DeleteConfirmation";
 
 interface IdProps {
   params: {
@@ -26,7 +29,11 @@ export default async function Playlist({params}: IdProps) {
                 <div className='flex items-center mb-1 gap-4'>
                     <p className='text-4xl font-semibold'>{playlist.name}</p>
                     <PlaylistEdit id={playlist.id}/>
-                    <PlaylistDelete id={playlist.id}/>
+                    <DeleteConfirmation id={playlist.id} direction='playlist'>
+                        <IconButton aria-label="delete">         
+                            <DeleteIcon />
+                        </IconButton>
+                    </DeleteConfirmation>
                 </div>
                 <p className='mb-6'>{`${songs.length} Músicas`}</p>
                 <p>{playlist.description}</p>

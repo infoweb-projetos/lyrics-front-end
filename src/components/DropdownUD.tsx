@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface DropdownUDProps {
-    id: string
+  id: string
 }
 
 export function DropdownUD({id}: DropdownUDProps) {
@@ -48,8 +48,10 @@ export function DropdownUD({id}: DropdownUDProps) {
         <MenuItem>
             Editar
         </MenuItem>
-        <MenuItem>
-            <DeleteConfirmation id={id}/>
+        <MenuItem>           
+            <DeleteConfirmation id={id} direction='song'>
+              Excluir
+            </DeleteConfirmation>
         </MenuItem>
       </Menu>
     </div>
