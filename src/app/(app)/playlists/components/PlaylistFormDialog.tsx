@@ -13,7 +13,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
 
-export default function FormDialog() {
+export default function PlaylistFormDialog() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [open, setOpen] = useState(false);

@@ -1,5 +1,5 @@
 import { api } from "@/lib/axios";
-import { SongCreate } from "@/app/(app)/songs/components/SongCreate";
+import SongCreate from "./components/SongCreate";
 import { SongCard } from "@/components/SongCard";
 import { songProps } from "@/types/songProps";
 
@@ -16,7 +16,7 @@ export default async function Songs() {
             <div className="my-8 grid grid-cols-1 gap-3">
                 {songs.map((song) => {
                     return (
-                        <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={true}/>
+                        <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={false}/>
                     )
                 })}
             </div>

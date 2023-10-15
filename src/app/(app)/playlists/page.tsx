@@ -1,6 +1,6 @@
 import {api} from '../../../lib/axios';
 import cardImage from '../../../assets/card.jpeg';
-import FormDialog from './components/FormDialog';
+import PlaylistFormDialog from './components/PlaylistFormDialog';
 import { playlistProps } from "@/types/playlistProps";
 import { PlaylistCard } from '../../../components/PlaylistCard';
 
@@ -10,7 +10,7 @@ export default async function Playlists(){
 
     return(
         <div className="flex flex-col h-full">
-            <FormDialog />
+            <PlaylistFormDialog />
             <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
                 {playlists.map((card) => {
                     return(
