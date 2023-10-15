@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import DeleteConfirmation from './DeleteConfirmation';
+import { SongEdit } from '@/app/(app)/song/components/SongEdit';
 
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -9,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 interface DropdownUDProps {
-  id: string
+  id: string;
 }
 
 export function DropdownUD({id}: DropdownUDProps) {
@@ -46,7 +47,7 @@ export function DropdownUD({id}: DropdownUDProps) {
         onClose={handleClose}
       >
         <MenuItem>
-            Editar
+            <SongEdit id={id}/>
         </MenuItem>
         <MenuItem>           
             <DeleteConfirmation id={id} direction='song'>

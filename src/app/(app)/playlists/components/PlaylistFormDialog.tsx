@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import { submitData } from './submitData';
+import { createPlaylist } from '../../../../operations/createPlaylist';
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -26,7 +26,7 @@ export default function PlaylistFormDialog() {
     };
 
     function submit() {
-        submitData(name, description)
+        createPlaylist(name, description)
         setName('')
         setDescription('')
     }

@@ -1,10 +1,8 @@
-import { api } from '@/lib/axios';
 import SongFormDialog from './SongFormDialog';
-import { playlistProps } from '@/types/playlistProps';
+import { getPlaylists } from '@/operations/getPlaylists';
 
 export default async function SongCreate() {
-    const ResponsePlaylists = await api.get('/playlists')
-    const playlists: playlistProps[] = ResponsePlaylists.data
+    const playlists = await getPlaylists();
 
     return (
         <SongFormDialog playlists={playlists}/>

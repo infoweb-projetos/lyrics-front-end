@@ -1,12 +1,10 @@
-import {api} from '../../../lib/axios';
 import cardImage from '../../../assets/card.jpeg';
 import PlaylistFormDialog from './components/PlaylistFormDialog';
-import { playlistProps } from "@/types/playlistProps";
 import { PlaylistCard } from '../../../components/PlaylistCard';
+import { getPlaylists } from '@/operations/getPlaylists';
 
 export default async function Playlists(){
-    const ResponsePlaylists = await api.get('/playlists')
-    const playlists: playlistProps[] = ResponsePlaylists.data
+    const playlists = await getPlaylists();
 
     return(
         <div className="flex flex-col h-full">

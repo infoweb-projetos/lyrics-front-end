@@ -1,16 +1,12 @@
-import { api } from "@/lib/axios";
 import cardImage from '../../../assets/card.jpeg';
-import { songProps } from "@/types/songProps";
-import { playlistProps } from "@/types/playlistProps";
 import { PlaylistCard } from "@/components/PlaylistCard";
 import { SongCard } from "@/components/SongCard";
+import { getPlaylists } from "@/operations/getPlaylists";
+import { getSongs } from "@/operations/getSongs";
 
 export default async function Dashboard() {
-    const ResponseSongs = await api.get('/songs')
-    const songs: songProps[] = ResponseSongs.data
-
-    const ResponsePlaylists = await api.get('/playlists')
-    const playlists: playlistProps[] = ResponsePlaylists.data
+    const songs = await getSongs()
+    const playlists = await getPlaylists()
 
     return (
         <div>

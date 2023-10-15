@@ -1,8 +1,10 @@
 'use client'
 
-import { useState } from 'react';
-import { createSong } from '../../../../operations/createSong';
+import { api } from '@/lib/axios';
+import { useEffect, useState } from 'react';
+import { songProps } from '@/types/songProps';
 import { playlistProps } from '@/types/playlistProps';
+import { editSong } from '@/operations/editSong';
 
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -14,61 +16,60 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import AddIcon from '@mui/icons-material/Add';
 
-interface SongFormDialogProps{
-    playlists: playlistProps[]
-}
-
-export default function SongFormDialog({playlists}: SongFormDialogProps) {
-    const [name, setName] = useState('');
-    const [playlist_id, setIdPlaylist] = useState<string>('');
+export function SongEdit({id}: songProps) {
+    const [playlists, setPlaylists] = useState<playlistProps[]>([]);
+    const [newPlaylist_id, setNewIdPlaylist] = useState('');
+    const [newName, setNewName] = useState('');
     const [open, setOpen] = useState(false);
-    
+
+    useEffect(() => {
+        api.get('/playlists').then(response => {
+            setPlaylists(response.data)
+        })
+    }, [])
+
     const handleClickOpen = () => {
         setOpen(true);
     };
-
+    
     const handleClose = () => {
         setOpen(false);
     };
-
+    
     const handleChange = (event: SelectChangeEvent) => {
-        setIdPlaylist(event.target.value);
+        setNewIdPlaylist(event.target.value);
     };
-
+    
     function submit() {
-        createSong(name, playlist_id)
-        setName('')
-        setIdPlaylist('')
+        editSong(id, newName, newPlaylist_id);
+        setNewName('')
+        setNewIdPlaylist('')
     }
 
     return(
-        <div>
-            <button className='flex items-center' onClick={handleClickOpen}>
-                <AddIcon className='relative left-8' sx={{color: 'white'}}/>
-                <span className='bg-darkBlue p-3 pl-11 text-white rounded-lg'>Adicionar música</span>
-            </button>
+        <div onClick={handleClickOpen}>
+            <p>Editar</p>
             <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Nova Música</DialogTitle>
+            <DialogTitle>Editar Música</DialogTitle>
             <form onSubmit={submit}>
                 <DialogContent>
                     <TextField
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="Nome da Música"
+                        label="Novo nome"
                         type="text"
                         fullWidth
                         variant="standard"
-                        onChange={e => setName(e.target.value)}
+                        onChange={e => setNewName(e.target.value)}
                     />
                     <FormControl sx={{ m: 1, minWidth: 100 }}>
                         <InputLabel id="demo-simple-select-autowidth-label">Playlist</InputLabel>
                         <Select
                             labelId="demo-simple-select-autowidth-label"
                             id="demo-simple-select-autowidth"
-                            value={playlist_id}
+                            value={newPlaylist_id}
                             onChange={handleChange}
                             autoWidth
                             label="Playlist"

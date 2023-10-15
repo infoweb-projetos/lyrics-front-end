@@ -1,11 +1,9 @@
-import { api } from "@/lib/axios";
 import SongCreate from "./components/SongCreate";
 import { SongCard } from "@/components/SongCard";
-import { songProps } from "@/types/songProps";
+import { getSongs } from "@/operations/getSongs";
 
-export default async function Songs() {
-    const ResponseSongs = await api.get('/songs')
-    const songs: songProps[] = ResponseSongs.data
+export default async function Songs() {  
+    const songs = await getSongs()
 
     return (
         <div>
