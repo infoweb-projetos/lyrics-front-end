@@ -1,8 +1,7 @@
 'use client'
 
 import { api } from '@/lib/axios';
-import { useEffect, useState } from 'react';
-import { songProps } from '@/types/songProps';
+import React, { useEffect, useState } from 'react';
 import { playlistProps } from '@/types/playlistProps';
 import { editSong } from '@/operations/editSong';
 
@@ -17,7 +16,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export function SongEdit({id}: songProps) {
+interface SongEditProps {
+    id: string
+    children: React.ReactNode
+}
+
+export function SongEdit({id, children}: SongEditProps) {
     const [playlists, setPlaylists] = useState<playlistProps[]>([]);
     const [newPlaylist_id, setNewIdPlaylist] = useState('');
     const [newName, setNewName] = useState('');
@@ -48,8 +52,10 @@ export function SongEdit({id}: songProps) {
     }
 
     return(
-        <div onClick={handleClickOpen}>
-            <p>Editar</p>
+        <div>
+            <div onClick={handleClickOpen}>
+                {children}
+            </div>
             <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Editar Música</DialogTitle>
             <form onSubmit={submit}>
@@ -94,5 +100,6 @@ export function SongEdit({id}: songProps) {
             </form>
             </Dialog>
         </div>
+
     )
 }

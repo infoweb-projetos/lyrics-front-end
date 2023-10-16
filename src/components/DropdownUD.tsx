@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import DeleteConfirmation from './DeleteConfirmation';
 import { SongEdit } from '@/app/(app)/song/components/SongEdit';
 
@@ -47,7 +47,9 @@ export function DropdownUD({id}: DropdownUDProps) {
         onClose={handleClose}
       >
         <MenuItem>
-            <SongEdit id={id}/>
+            <SongEdit id={id}>
+              Editar
+            </SongEdit>
         </MenuItem>
         <MenuItem>           
             <DeleteConfirmation id={id} direction='song'>

@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useState } from "react"
-import { playlistProps } from "@/types/playlistProps"
 import { editPlaylist } from "@/operations/editPlaylist";
 
 import IconButton from '@mui/material/IconButton';
@@ -13,8 +12,9 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import { songProps } from '@/types/songProps';
 
-export function PlaylistEdit({id}: playlistProps){
+export function PlaylistEdit({id}: songProps){
     const [newName, setNewName] = useState('');
     const [newDescription, setNewDescription] = useState('');
     const [open, setOpen] = useState(false);
