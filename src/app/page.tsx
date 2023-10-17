@@ -1,6 +1,12 @@
+import { cookies } from 'next/headers'
 import Link from "next/link";
+import SignIn from './(auth)/signin/page';
 
 export default function Home() {
+    const isAuthenticated = cookies().has('token')
+    if(!isAuthenticated) {
+        return <SignIn/>
+    }
     return(
         <div>
             <p>Página de apresentação do projeto</p>

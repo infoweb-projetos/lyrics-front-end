@@ -7,7 +7,7 @@ import { getSongs } from "@/operations/getSongs";
 export default async function Dashboard() {
     const songs = await getSongs()
     const playlists = await getPlaylists()
-
+    
     return (
         <div>
             <div>

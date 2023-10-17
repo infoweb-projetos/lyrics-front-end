@@ -8,8 +8,15 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
+        darkBlue: '#10395F',
+        borderColor: '#424242'
+      },
+      textColor :{
         darkBlue: '#10395F'
       },
+      borderColor: {
+        offWhite: '#B8B8B8'
+      }
     },
   },
   plugins: [],
