@@ -4,17 +4,27 @@ import { useState } from 'react';
 import { login } from '../../../../operations/login';
 import Link from 'next/link';
 import { ErrorText } from '@/components/ErrorText';
+import { useRouter } from 'next/navigation';
 
 export default function CreateUser() {
+
+    const router = useRouter()
 
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
     const [error,setError] = useState('')
 
+
     function submit(e: any) {
         e.preventDefault()
-        login(username, password).catch((e) => {
-            if(e.response.data.message.includes("Invalid username or password")) setError('email ou senha incorreto')
+        login(username, password).then(() => {
+            router.push('/')
+        }).catch((e) => {
+            if(e.response.data.message.includes("Invalid username or password")){
+                setError('email ou senha incorreto')
+            } else {
+                setError('tente novamente mais tarde')
+            }
         })
     }
 

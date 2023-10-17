@@ -1,10 +1,19 @@
+import SignIn from '@/app/(auth)/signin/page';
 import cardImage from '../../../assets/card.jpeg';
 import { PlaylistCard } from "@/components/PlaylistCard";
 import { SongCard } from "@/components/SongCard";
 import { getPlaylists } from "@/operations/getPlaylists";
 import { getSongs } from "@/operations/getSongs";
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server'
 
 export default async function Dashboard() {
+    // const isAuthenticated = cookies().has('token')
+
+    // if (!isAuthenticated) {
+    //     return <SignIn />   
+    // }
+    
     const songs = await getSongs()
     const playlists = await getPlaylists()
     
