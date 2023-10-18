@@ -28,7 +28,7 @@ export default async function Playlist({params}: IdProps) {
             <div className='ml-6'>
                 <div className='flex items-center mb-1 gap-4'>
                     <p className='text-4xl font-semibold'>{playlist.name}</p>
-                    <PlaylistEdit id={playlist.id}/>
+                    <PlaylistEdit playlist={playlist}/>
                     <DeleteConfirmation id={playlist.id} direction='playlist'>
                         <IconButton aria-label="delete">         
                             <DeleteIcon />

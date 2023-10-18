@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from "react"
 import { editPlaylist } from "@/operations/editPlaylist";
 
@@ -12,9 +11,15 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import { songProps } from '@/types/songProps';
+import { playlistProps } from '@/types/playlistProps';
 
-export function PlaylistEdit({id}: songProps){
+interface PlaylistEditProps {
+    playlist: playlistProps
+}
+
+export function PlaylistEdit({playlist}: PlaylistEditProps){
+    const oldName = playlist.name
+    const oldDescription = playlist.description
     const [newName, setNewName] = useState('');
     const [newDescription, setNewDescription] = useState('');
     const [open, setOpen] = useState(false);
@@ -28,7 +33,17 @@ export function PlaylistEdit({id}: songProps){
     };
     
     function submit() {
-        editPlaylist(id, newName, newDescription);
+
+        if(newName === '' && newDescription !== '') {
+            editPlaylist(playlist.id, oldName, newDescription);
+        } else if (newDescription === '' && oldName !== '') {
+            editPlaylist(playlist.id, newName, oldDescription);
+        } else if (newDescription === '' && newName === '') {
+            editPlaylist(playlist.id, oldName, oldDescription);
+        } else {
+            editPlaylist(playlist.id, newName, newDescription);
+        }
+
         setNewName('')
         setNewDescription('')
     }
@@ -64,10 +79,8 @@ export function PlaylistEdit({id}: songProps){
                         />                      
                     </DialogContent>
                     <DialogActions>
-                        <Link href='/playlists'>
                             <Button onClick={handleClose}>Cancelar</Button>
-                        </Link>
-                        <Button type="submit" onClick={handleClose}>Confirmar</Button>
+                            <Button type="submit" onClick={handleClose}>Confirmar</Button>
                     </DialogActions>
                 </form>
             </Dialog>
