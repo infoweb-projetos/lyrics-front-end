@@ -47,7 +47,7 @@ export default function CreateUser() {
                     </div>
                     <div className='flex items-center justify-center my-5'>
                         <button type='submit' className='text-white font-medium bg-darkBlue rounded-lg p-3 w-full mx-10'>
-                            <p>Entrar</p>
+                            Entrar
                         </button>
                     </div>
                     <ErrorText error={error}/>

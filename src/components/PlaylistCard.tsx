@@ -3,14 +3,6 @@ import Link from "next/link";
 import { playlistProps } from "@/types/playlistProps";
 
 export function PlaylistCard({cardImage, name, description, id}: playlistProps){
-    if(!id) {
-        return (
-            <div>
-                <p>Não há playlists</p>
-            </div>
-        )
-    }
-
     return(
         <>
             <Link className="max-h-[250px]" href={`playlist/${id}`}>

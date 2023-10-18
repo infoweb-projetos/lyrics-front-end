@@ -13,12 +13,12 @@ export default function CreateUser() {
     const [password,setPassword] = useState('')
     const [error, setError] = useState('')
 
-    async function submit(e:any) {
+    function submit(e: any) {
         e.preventDefault()
-        await createUser(username, name, email, password).catch((e) => {
+        createUser(username, name, email, password).catch((e) => {
             if(!username || !name || !email || !password) setError('Todos os campos devem estar preenchidos')
             else if(e.response.data.message.includes('body/email must match format "email')) setError('Email inválido')
-            else if(e.response.data.message.includes('Invalid `prisma.user.create()`')) setError('Email ou username indisponível')
+            else if(e.response.data.message.includes('Invalid `prisma.user.create()`')) setError('Email ou username já utilizados')
         })
     }
 

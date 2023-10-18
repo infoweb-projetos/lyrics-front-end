@@ -23,6 +23,7 @@ interface SongEditProps {
 
 export function SongEdit({id, children}: SongEditProps) {
     const [playlists, setPlaylists] = useState<playlistProps[]>([]);
+    const [oldPlaylist_id, setOldPlaylist_id] = useState('')
     const [newPlaylist_id, setNewIdPlaylist] = useState('');
     const [newName, setNewName] = useState('');
     const [open, setOpen] = useState(false);
@@ -30,6 +31,10 @@ export function SongEdit({id, children}: SongEditProps) {
     useEffect(() => {
         api.get('/playlists').then(response => {
             setPlaylists(response.data)
+        })
+        api.get(`/songs/${id}`).then(response => {
+            console.log(JSON.stringify(response.data))
+            setOldPlaylist_id(response.data.playlist_id)
         })
     }, [])
 
@@ -46,7 +51,12 @@ export function SongEdit({id, children}: SongEditProps) {
     };
     
     function submit() {
-        editSong(id, newName, newPlaylist_id);
+        if(newPlaylist_id === '') {
+            editSong(id, newName, oldPlaylist_id)
+        } else {
+            editSong(id, newName, newPlaylist_id)
+        }
+
         setNewName('')
         setNewIdPlaylist('')
     }
