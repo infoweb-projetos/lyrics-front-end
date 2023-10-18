@@ -3,12 +3,10 @@ import { DropdownUD } from './DropdownUD';
 import {songProps} from '../types/songProps'
 
 export async function SongCard({id, name, playlist_id, cardWidth}: songProps) {
-    if(!playlist_id) {
+    if(cardWidth) {
         return(
             <>
-                <div 
-                    className= {!cardWidth ? "border border-black rounded-lg p-6 flex justify-between items-center" : "border border-black rounded-lg max-w-[450px] p-6 flex justify-between items-center"} 
-                > 
+                <div className="border border-black rounded-lg max-w-[450px] p-6 flex justify-between items-center"> 
                     <p className="font-medium text-xl max-w-[200px] truncate">{name}</p>
                     <div className='flex justify-center items-center'>
                         <p className="p-2">Tom: cm7</p>
@@ -23,9 +21,7 @@ export async function SongCard({id, name, playlist_id, cardWidth}: songProps) {
     
         return (
             <>
-                <div 
-                    className= {!cardWidth ? "border border-black rounded-lg p-6 flex justify-between items-center" : "border border-black rounded-lg max-w-[450px] p-6 flex justify-between items-center"} 
-                > 
+                <div className="border border-black rounded-lg p-6 flex justify-between items-center"> 
                     <p className="font-medium text-xl">{name}</p>                
                     <div>
                         <p>{playlistName}</p>

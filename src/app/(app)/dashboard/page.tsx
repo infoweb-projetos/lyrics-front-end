@@ -1,7 +1,7 @@
 // import SignIn from '@/app/(auth)/signin/page';
 // import { cookies } from 'next/headers';
 // import { NextResponse } from 'next/server'
-import cardImage from '../../../assets/card.jpeg';
+import card from '../../../assets/card.png';
 import { PlaylistCard } from "@/components/PlaylistCard";
 import { SongCard } from "@/components/SongCard";
 import { getPlaylists } from "@/operations/getPlaylists";
@@ -24,7 +24,7 @@ export default async function Dashboard() {
                 <div className="my-8 grid grid-cols-3 gap-3">
                     {songs.slice(0, 6).map((song) => {
                         return (
-                            <SongCard key={song.id} id={song.id} name={song.name} cardWidth={true}/>
+                            <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={true}/>
                         )
                     })}
                 </div>
@@ -34,7 +34,7 @@ export default async function Dashboard() {
                 <div className="my-8 grid grid-cols-3 gap-3">
                     {playlists.slice(0, 6).map((playlist) => {
                         return (
-                            <PlaylistCard key={playlist.id} id={playlist.id} name={playlist.name} cardImage={cardImage}/>
+                            <PlaylistCard key={playlist.id} id={playlist.id} name={playlist.name} description={playlist.description} cardImage={card}/>
                         )
                     })}
                 </div>

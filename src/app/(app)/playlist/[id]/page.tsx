@@ -1,6 +1,6 @@
 import { api } from "@/lib/axios";
 import Image from 'next/image';
-import cardImage from '../../../../assets/card.jpeg';
+import cardImage from '../../../../assets/card.png';
 import { playlistProps } from "@/types/playlistProps";
 import { songProps } from "@/types/songProps";
 import { SongCard } from "@/components/SongCard";
@@ -43,7 +43,7 @@ export default async function Playlist({params}: IdProps) {
         <div className="my-8 grid grid-cols-1 gap-3">
             {songs.map((song) => {
                 return (
-                  <SongCard key={song.id} id={song.id} name={song.name} cardWidth={false}/>
+                  <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={false}/>
                 )
             })}
         </div>

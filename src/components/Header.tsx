@@ -6,9 +6,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export function Header(){
     return(
-        <div className='flex items-center justify-between mb-10'>
-            <Image src={logo} alt='logo'/>
-            <div className=''>
+        <div className='flex items-center justify-between mb-10 text-white'>
+            <Image src={logo} alt='logo' className="h-60"/>
+            <div>
                 <ul className='flex gap-10 font-semibold text-2xl'>
                     <Link href='/dashboard'>Inicio</Link>
                     <Link href='/songs'>Músicas</Link>
@@ -18,7 +18,7 @@ export function Header(){
                             fontSize: '30px',
                         }}/>
                         <input 
-                            className='w-40 placeholder-black'
+                            className='placeholder-white bg-transparent w-120'
                             placeholder='Pesquisar'/>
                     </div>
                 </ul>
