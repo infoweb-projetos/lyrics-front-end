@@ -56,11 +56,11 @@ export default function CreateUser() {
                         </button>
                     </div>
                     <ErrorText error={error}/>
+                    <p className='flex justify-center items-center mt-5'>Não tem uma conta?
+                        <Link href='/signup' className='ml-1 text-sky-300'>Cadastre-se</Link>
+                    </p>
                 </div>
             </form>
-            <p className='flex justify-center items-center my-10'>Não tem uma conta?
-                <Link href='/signup' className='ml-1 text-sky-300'>Cadastre-se</Link>
-            </p>
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { PlaylistCard } from '../../../components/PlaylistCard';
 import { getPlaylists } from '@/operations/getPlaylists';
 
 export default async function Playlists(){
+    
     const playlists = await getPlaylists();
 
     return(

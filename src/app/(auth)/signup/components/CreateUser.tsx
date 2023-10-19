@@ -20,6 +20,9 @@ export default function CreateUser() {
             else if(e.response.data.message.includes('body/email must match format "email')) setError('Email inválido')
             else if(e.response.data.message.includes('Invalid `prisma.user.create()`')) setError('Email ou username já utilizados')
         })
+        setTimeout(() => {
+            setError('')
+        }, 5000)
     }
 
     return (
@@ -62,7 +65,7 @@ export default function CreateUser() {
                         </button>
                     </div>
                     <ErrorText error={error} />
-                    <p className='flex justify-center items-center'>Já tem uma conta? 
+                    <p className='flex justify-center items-center mt-5'>Já tem uma conta? 
                         <Link href='/signin' className='ml-1 text-sky-300'>Acesse sua conta</Link>
                     </p>
                 </div>
