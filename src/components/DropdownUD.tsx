@@ -1,6 +1,6 @@
 'use client'
 
-import { Children, useState } from 'react';
+import { useState } from 'react';
 import DeleteConfirmation from './DeleteConfirmation';
 import { SongEdit } from '@/app/(app)/song/components/SongEdit';
 
@@ -34,7 +34,7 @@ export function DropdownUD({id}: DropdownUDProps) {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <MoreVertIcon />
+        <MoreVertIcon sx={{color: 'white'}} />
       </IconButton>
 
       <Menu

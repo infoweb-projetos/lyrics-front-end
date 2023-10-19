@@ -22,18 +22,20 @@ export default async function Playlist({params}: IdProps) {
   const songs: songProps[] = ResponsePlaylist.data.Songs
 
   return (
-    <div>
+    <div >
         <div className='flex items-center mt-20'>
             <Image src={cardImage} alt='' className='rounded-lg' width={300} height={300} />
             <div className='ml-6'>
-                <div className='flex items-center mb-1 gap-4'>
-                    <p className='text-4xl font-semibold'>{playlist.name}</p>
-                    <PlaylistEdit playlist={playlist}/>
-                    <DeleteConfirmation id={playlist.id} direction='playlist'>
-                        <IconButton aria-label="delete">         
-                            <DeleteIcon />
-                        </IconButton>
-                    </DeleteConfirmation>
+                <div className='flex items-center justify-between mb-1 gap-16'>
+                    <p className='text-4xl font-semibold max-w-[450px] break-words'>{playlist.name}</p>
+                    <div className="flex items-center justify-center">
+                      <PlaylistEdit playlist={playlist}/>
+                      <DeleteConfirmation id={playlist.id} direction='playlist'>
+                          <IconButton aria-label="delete">
+                              <DeleteIcon sx={{color: 'white'}}/>
+                          </IconButton>
+                      </DeleteConfirmation>
+                    </div>
                 </div>
                 <p className='mb-6'>{`${songs.length} Músicas`}</p>
                 <p>{playlist.description}</p>

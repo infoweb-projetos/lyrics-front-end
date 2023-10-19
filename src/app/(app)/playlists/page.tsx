@@ -1,4 +1,4 @@
-import cardImage from '../../../assets/card.jpeg';
+import cardImage from '../../../assets/card.png';
 import PlaylistFormDialog from './components/PlaylistFormDialog';
 import { PlaylistCard } from '../../../components/PlaylistCard';
 import { getPlaylists } from '@/operations/getPlaylists';

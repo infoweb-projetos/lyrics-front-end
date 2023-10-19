@@ -51,7 +51,7 @@ export function PlaylistEdit({playlist}: PlaylistEditProps){
     return (
         <div>
             <IconButton aria-label="delete" onClick={handleClickOpen}>
-                <EditIcon />
+                <EditIcon sx={{color: 'white'}}/>
             </IconButton>
 
             <Dialog open={open} onClose={handleClose}>

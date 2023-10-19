@@ -9,7 +9,7 @@ export default function AppLayout({children}: AppLayoutProps) {
     return (
         <div>
             <Header/>
-            {children}
+            <div className='bg-[#141414] rounded-[10px] p-[40px]'>{children}</div>
         </div>
     )
 }

@@ -18,7 +18,7 @@ export default async function Dashboard() {
     const playlists = await getPlaylists()
     
     return (
-        <div>
+        <div className=''>
             <div>
                 <h1 className="text-3xl font-semibold">Vistas recentemente</h1>
                 <div className="my-8 grid grid-cols-3 gap-3">
@@ -31,8 +31,8 @@ export default async function Dashboard() {
             </div>
             <div>
                 <h1 className="text-3xl font-semibold">Playlists</h1>
-                <div className="my-8 grid grid-cols-3 gap-3">
-                    {playlists.slice(0, 6).map((playlist) => {
+                <div className="my-8 grid grid-cols-5 gap-3">
+                    {playlists.slice(0, 5).map((playlist) => {
                         return (
                             <PlaylistCard key={playlist.id} id={playlist.id} name={playlist.name} description={playlist.description} cardImage={card}/>
                         )
