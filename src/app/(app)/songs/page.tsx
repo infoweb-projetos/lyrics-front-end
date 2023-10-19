@@ -7,7 +7,7 @@ export default async function Songs() {
 
     return (
         <div>
-            <div className="flex justify-between mt-20 border-b-2 border-gray-500 pb-3">
+            <div className="flex justify-between pb-3">
                 <span className="text-3xl font-semibold">Músicas</span>
                 <SongCreate />
             </div>

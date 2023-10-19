@@ -8,8 +8,11 @@ export default async function Playlists(){
 
     return(
         <div className="flex flex-col h-full">
-            <PlaylistFormDialog />
-            <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+            <div className="flex justify-between pb-3">
+                <span className="text-3xl font-semibold">Playlist</span>
+                <PlaylistFormDialog />
+            </div>
+            <div className="grid xl:grid-cols-5 lg:grid-cols-4 gap-3 md:grid-cols-3 sm:grid-cols-2 my-8" >
                 {playlists.map((card) => {
                     return(
                         <div key={card.id}>

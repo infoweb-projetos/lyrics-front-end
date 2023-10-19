@@ -23,7 +23,7 @@ export default async function Playlist({params}: IdProps) {
 
   return (
     <div >
-        <div className='flex items-center mt-20'>
+        <div className='flex items-center'>
             <Image src={cardImage} alt='' className='rounded-lg' width={300} height={300} />
             <div className='ml-6'>
                 <div className='flex items-center justify-between mb-1 gap-16'>
@@ -42,7 +42,7 @@ export default async function Playlist({params}: IdProps) {
             </div>
         </div>
         
-        <div className="my-8 grid grid-cols-1 gap-3">
+        <div className="mt-8 grid grid-cols-1 gap-3">
             {songs.map((song) => {
                 return (
                   <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={false}/>

@@ -1,8 +1,8 @@
-import logo from '../../../assets/logo.svg'
+import logo from '../../../assets/logo.png'
 import Image from 'next/image'
 import Login from './components/Login'
 
-export default function SignIn() {
+export default function Signin() {
 
     return (
         <div>

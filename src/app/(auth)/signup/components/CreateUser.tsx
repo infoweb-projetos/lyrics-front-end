@@ -23,43 +23,47 @@ export default function CreateUser() {
     }
 
     return (
-        <div className='border-black/50 border-[1px] max-w-lg m-auto rounded-lg'>
+        <div className='border-white/40 border-2 max-w-lg m-auto rounded-lg'>
             <form onSubmit={submit}>
-                <div className='my-10'>
+                <div className='my-7'>
                     <div className='flex flex-col max-w-full mx-10'>
                         <label className='font-medium text-lg my-5'>Username</label>
                         <input
+                        placeholder='Username'
                         type='text'
                         onChange={e => setUsername(e.target.value)} 
-                        className='border-[1px] border-offWhite w-full p-3 rounded-lg'/>
+                        className='border-[1px] border-offWhite w-full p-3 rounded-lg text-black'/>
                     </div>
                     <div className='flex flex-col max-w-full mx-10'>
                         <label className='font-medium text-lg my-5'>Nome Completo</label>
                         <input
+                        placeholder='Nome Completo'
                         type='text'
                         onChange={e => setName(e.target.value)} 
-                        className='border-[1px] border-offWhite w-full p-3 rounded-lg'/>
+                        className='border-[1px] border-offWhite w-full p-3 rounded-lg text-black'/>
                     </div>
                     <div className='flex flex-col max-w-full mx-10'>
                         <label className='font-medium text-lg my-5'>E-mail</label>
                         <input
+                        placeholder='E-mail'
                         onChange={e => setEmail(e.target.value)} 
-                        type='text' className='border-[1px] border-offWhite w-full p-3 rounded-lg'/>
+                        type='text' className='border-[1px] border-offWhite w-full p-3 rounded-lg text-black'/>
                     </div>
                     <div className='flex flex-col max-w-full mx-10'>
                         <label className='font-medium text-lg my-5'>Senha</label>
                         <input
+                        placeholder='Senha'
                         onChange={e => setPassword(e.target.value)} 
-                        type='password' className='border-[1px] border-offWhite w-full p-3 rounded-lg'/>
+                        type='password' className='border-[1px] border-offWhite w-full p-3 rounded-lg text-black'/>
                     </div>
                     <div className='flex items-center justify-center my-5'>
-                        <button type='submit' className='text-white font-medium bg-darkBlue rounded-lg p-3 w-full mx-10'>
+                        <button type='submit' className='text-black font-medium bg-sky-300 rounded-lg p-3 w-full mx-10'>
                             <p>Cadastrar</p>
                         </button>
                     </div>
                     <ErrorText error={error} />
                     <p className='flex justify-center items-center'>Já tem uma conta? 
-                        <Link href='/signin' className='text-darkBlue'>Acesse sua conta</Link>
+                        <Link href='/signin' className='ml-1 text-sky-300'>Acesse sua conta</Link>
                     </p>
                 </div>
             </form>

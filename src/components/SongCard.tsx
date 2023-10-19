@@ -19,7 +19,9 @@ export async function SongCard({id, name, playlist_id, cardWidth}: songProps) {
     
         return (
                 <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] p-6 flex justify-between items-center"> 
-                    <p className="font-medium text-xl">{name}</p>                
+                    <div className='w-[250px]' >
+                        <p className="font-medium text-xl truncate">{name}</p>       
+                    </div>         
                     <div>
                         <p>{playlistName}</p>
                     </div>  

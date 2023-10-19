@@ -11,7 +11,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import AddIcon from '@mui/icons-material/Add';
 
-
 export default function PlaylistFormDialog() {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -34,8 +33,8 @@ export default function PlaylistFormDialog() {
     return (
         <div>
             <button className='flex items-center' onClick={handleClickOpen}>
-                <AddIcon className='relative left-8' sx={{color: 'white'}}/>
-                <span className='bg-darkBlue p-3 pl-11 text-white rounded-lg'>Adicionar playlist</span>
+                <AddIcon className='relative left-8' sx={{color: 'black'}}/>
+                <span className='bg-white p-3 pl-11 text-black rounded-lg font-semibold'>Adicionar playlist</span>
             </button>
 
             <Dialog open={open} onClose={handleClose}>
