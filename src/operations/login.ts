@@ -1,14 +1,14 @@
 import { api } from '@/lib/axios';
-import { NextRequest, NextResponse } from 'next/server';
 
-export async function login(username: string, password: string, request?: NextRequest) {
+export async function login(username: string, password: string) {
     const response = await api.post('/users/login', {username, password})
-    // const {token} = response.data
-    // const redirectURL = new URL('/', request?.url)
-    
-    // return NextResponse.redirect(redirectURL, {
-    //     headers: {
-    //         'Set-Cookie': `token=${token}; Path=/; max-age=259200`
-    //     }
-    // })
+
+    const token = response.data.accessToken
+
+    const d = new Date();
+    d.setTime(d.getTime() + (1*24*60*60*1000));
+
+    const expires = "expires="+ d.toUTCString();
+
+    document.cookie = `token=${token}; ${expires} `;
 }

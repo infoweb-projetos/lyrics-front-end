@@ -53,7 +53,9 @@ export default function DeleteConfirmation({id, direction, children}: DeleteConf
             </DialogTitle>
             <DialogActions>
               <Button onClick={handleClose}>Cancelar</Button>
-              <Button onClick={confirmation}>Confirmar</Button>
+              <a href="/playlists">
+                <Button onClick={confirmation}>Confirmar</Button>
+              </a>
             </DialogActions>
         </Dialog>
     </div>

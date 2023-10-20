@@ -7,12 +7,14 @@ interface AppLayoutProps {
     children: ReactNode
 }
 
-export default function AppLayout({children}: AppLayoutProps) {
-    // const isAuthenticated = cookies().has('token')
+export default async function AppLayout({children}: AppLayoutProps) {
+    const isAuthenticated = await cookies().has('token')
 
-    // if (!isAuthenticated) {
-    //     redirect('/signin')
-    // } 
+    console.log(isAuthenticated)
+
+    if (!isAuthenticated) {
+        redirect('/signin')
+    } 
 
     return (
         <div>

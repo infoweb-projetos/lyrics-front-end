@@ -7,7 +7,7 @@ import { ErrorText } from '@/components/ErrorText';
 import { useRouter } from 'next/navigation';
 
 export default function CreateUser() {
-
+    
     const router = useRouter()
 
     const [username,setUsername] = useState('')
@@ -18,7 +18,7 @@ export default function CreateUser() {
     function submit(e: any) {
         e.preventDefault()
         login(username, password).then(() => {
-            router.push('/')
+            router.push('/dashboard')
         }).catch((e) => {
             if(e.response.data.message.includes("Invalid username or password")){
                 setError('Email ou senha incorreto')
