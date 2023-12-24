@@ -2,7 +2,7 @@ import Link from "next/link";
 import LogoutButton from "@/components/Logout";
 
 export default function Home() {
-    return(
+    return (
         <div>
             <p>Página de apresentação do projeto</p> <br />
             <Link href="/signin">Login</Link> <br />
