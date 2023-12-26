@@ -1,11 +1,17 @@
 import ChordLine from "./ChordLine";
 import TextLine from "./TextLine";
-import lyricsExample from "../api"
 
+import lyricsExample from "../api"
 const { lyrics } = lyricsExample()
 const lyricsArray = lyrics.split("\n");
 
-export default function Board() {
+interface boardProps {
+    lyrics: string
+}
+
+export default function Board({ lyrics }: boardProps) {
+    // const lyricsArray = lyrics.split("\n");
+
     return (
         <div>
             {lyricsArray.map((line, index) => {

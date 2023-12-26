@@ -15,7 +15,7 @@ export default async function Song({ params }: IdProps) {
     return (
         <div>
             <h1 className="text-3xl font-semibold">Música: {song.name}</h1>
-            <Board />
+            <Board lyrics={song.lyric}/>
         </div>
     )
 }
