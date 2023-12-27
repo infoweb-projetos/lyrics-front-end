@@ -14,7 +14,7 @@ export default async function Songs() {
             <div className="my-8 grid grid-cols-1 gap-3">
                 {songs.map((song) => {
                     return (
-                        <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} cardWidth={false}/>
+                        <SongCard key={song.id} id={song.id} name={song.name} playlist_id={song.playlist_id} lyric={song.lyric} cardWidth={false}/>
                     )
                 })}
             </div>

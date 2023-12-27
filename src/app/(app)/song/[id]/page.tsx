@@ -1,6 +1,7 @@
 import { api } from "@/lib/axios";
 import { songProps } from "@/types/songProps";
 import Board from "../components/Board";
+import ControlledSwitches from "../components/Switch";
 
 interface IdProps {
     params: {
@@ -14,8 +15,14 @@ export default async function Song({ params }: IdProps) {
 
     return (
         <div>
-            <h1 className="text-3xl font-semibold">Música: {song.name}</h1>
-            <Board lyrics={song.lyric}/>
+            <div className="flex justify-between items-center mb-6">
+                <h1 className="text-3xl font-semibold">{song.name}</h1>
+                <div className="flex items-center">
+                    <p>Modo de Edição</p>
+                    <ControlledSwitches />
+                </div>
+            </div>
+            <Board lyrics={song.lyric} />
         </div>
     )
 }

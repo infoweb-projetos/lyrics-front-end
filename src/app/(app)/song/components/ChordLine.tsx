@@ -21,11 +21,14 @@ export default function ChordLine({ chordList }: chordLineProps) {
 
     useEffect(() => {
         const chordString = chords.map((chord) => chord.chord).join("-");
-        //unir chordString com as linhas de texto e mandar para o banco
+        console.log(chordString)
     }, [chords]);
 
     const onDragend = (event: any) => {
         const { active, over } = event
+        if (over === null) {
+            return;
+        }
         if (active.id === over.id) {
             return;
         }

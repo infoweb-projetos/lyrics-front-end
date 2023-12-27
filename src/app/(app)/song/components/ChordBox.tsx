@@ -12,7 +12,7 @@ export default function ChordBox({ id, chord }: chordBoxProps) {
         transition,
         transform: CSS.Transform.toString(transform),
     }
-    let text = chord === "*" ? "" : chord
+    const text = chord === "*" ? "" : chord
 
     return (
 
