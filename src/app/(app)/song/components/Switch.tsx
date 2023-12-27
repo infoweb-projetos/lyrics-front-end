@@ -4,11 +4,16 @@ import * as React from 'react';
 import Switch from '@mui/material/Switch';
 import { useState } from 'react';
 
-export default function ControlledSwitches() {
+interface ControlledSwitchesProps {
+    onSwitchChange: () => void;
+}
+
+export default function ControlledSwitches({ onSwitchChange }: ControlledSwitchesProps) {
     const [checked, setChecked] = useState(true);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setChecked(event.target.checked);
+        onSwitchChange();
     };
 
     return (

@@ -6,22 +6,23 @@ import { SortableContext, arrayMove, horizontalListSortingStrategy } from "@dnd-
 import ChordBox from "./ChordBox";
 
 interface chordLineProps {
-    chordList: string
+    id: string
+    chordString: string
+    isSwitchOn: boolean
+    onChordStringChange: (id: string, newChordString: string) => void;
 }
 
-export default function ChordLine({ chordList }: chordLineProps) {
-    const chordsArray = chordList.split("-")
 
-    const newArray = chordsArray.map((chord, index) => ({
-        id: `${index}-${chord}`,
+
+export default function ChordLine({ id, chordString, isSwitchOn, onChordStringChange }: chordLineProps) {
+    const [chords, setChords] = useState(chordString.split("-").map((chord) => ({
+        id: Math.random().toString(36).substring(2),
         chord: chord,
-    }));
-
-    const [chords, setChords] = useState(newArray)
+    })))
 
     useEffect(() => {
-        const chordString = chords.map((chord) => chord.chord).join("-");
-        console.log(chordString)
+        const newChordString = chords.map((chord) => chord.chord).join("-");
+        onChordStringChange(id, newChordString)
     }, [chords]);
 
     const onDragend = (event: any) => {
@@ -39,17 +40,45 @@ export default function ChordLine({ chordList }: chordLineProps) {
         })
     }
 
+    const handleChordChange = (id: string, newChord: string) => {
+        setChords((prevChords) =>
+            prevChords.map((chord) =>
+                chord.id === id ? { ...chord, chord: newChord } : chord
+            )
+        );
+    };
+
     return (
-        <div className="w-2/4 bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
-            <DndContext collisionDetection={closestCenter} onDragEnd={onDragend}>
-                <SortableContext items={chords} strategy={horizontalListSortingStrategy}>
-                    {chords.map((obj) => {
-                        return (
-                            <ChordBox key={obj.id} id={obj.id} chord={obj.chord} />
-                        )
-                    })}
-                </SortableContext>
-            </DndContext>
+        <div>
+            {isSwitchOn ? (
+                <div className="w-fit bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
+                    <DndContext collisionDetection={closestCenter} onDragEnd={onDragend}>
+                        <SortableContext items={chords} strategy={horizontalListSortingStrategy}>
+                            {chords.map((obj) => (
+                                <ChordBox
+                                    key={obj.id}
+                                    id={obj.id}
+                                    chord={obj.chord}
+                                    isSwitchOn={isSwitchOn}
+                                    onChordChange={handleChordChange}
+                                />
+                            ))}
+                        </SortableContext>
+                    </DndContext>
+                </div>
+            ) : (
+                <div className="w-fit bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
+                    {chords.map((obj) => (
+                        <ChordBox
+                            key={obj.id}
+                            id={obj.id}
+                            chord={obj.chord}
+                            isSwitchOn={isSwitchOn}
+                            onChordChange={handleChordChange}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
