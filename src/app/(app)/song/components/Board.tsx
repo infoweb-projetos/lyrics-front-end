@@ -13,10 +13,19 @@ interface boardProps {
 }
 
 export default function Board({ songId, songName, lyrics }: boardProps) {
-    const [linesArray, setLinesArray] = useState(lyrics.split("||").map((content) => ({
-        id: Math.random().toString(36).substring(2),
-        content: content,
-    })));
+    const [linesArray, setLinesArray] = useState(
+        lyrics
+            ? lyrics.split("||").map((content) => ({
+                id: Math.random().toString(36).substring(2),
+                content: content,
+            }))
+            : [
+                {
+                    id: Math.random().toString(36).substring(2),
+                    content: "Comece por aqui",
+                },
+            ]
+    );
 
     useEffect(() => {
         const newLyricsString = linesArray.map(line => line.content).join('||');

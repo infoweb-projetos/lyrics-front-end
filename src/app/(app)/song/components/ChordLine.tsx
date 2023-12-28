@@ -47,9 +47,9 @@ export default function ChordLine({ id, chordString, isSwitchOn, onChordStringCh
     };
 
     return (
-        <div>
+        <>
             {isSwitchOn ? (
-                <div className="w-fit bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
+                <div className="w-2/4 bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
                     <DndContext collisionDetection={closestCenter} onDragEnd={onDragend}>
                         <SortableContext items={chords} strategy={horizontalListSortingStrategy}>
                             {chords.map((obj) => (
@@ -65,7 +65,7 @@ export default function ChordLine({ id, chordString, isSwitchOn, onChordStringCh
                     </DndContext>
                 </div>
             ) : (
-                <div className="w-fit bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
+                <div className="w-2/4 bg-[#424242] rounded px-1 text-cyan-400 font-semibold flex justify-between">
                     {chords.map((obj) => (
                         <ChordBox
                             key={obj.id}
@@ -77,6 +77,6 @@ export default function ChordLine({ id, chordString, isSwitchOn, onChordStringCh
                     ))}
                 </div>
             )}
-        </div>
+        </>
     );
 }

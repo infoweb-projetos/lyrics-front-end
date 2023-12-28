@@ -19,7 +19,7 @@ export default function TextLine({ id, line, isSwitchOn, onTextLineChange }: Tex
     };
 
     return (
-        <div className="w-fit mb-4">
+        <div className="w-2/4 mb-4">
             {!isSwitchOn ? (
                 <input
                     className="bg-transparent w-full border-none outline-none"
