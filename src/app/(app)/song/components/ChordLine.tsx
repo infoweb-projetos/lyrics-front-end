@@ -12,8 +12,6 @@ interface chordLineProps {
     onChordStringChange: (id: string, newChordString: string) => void;
 }
 
-
-
 export default function ChordLine({ id, chordString, isSwitchOn, onChordStringChange }: chordLineProps) {
     const [chords, setChords] = useState(chordString.split("-").map((chord) => ({
         id: Math.random().toString(36).substring(2),

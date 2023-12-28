@@ -37,6 +37,14 @@ export default function Board({ songId, songName, lyrics }: boardProps) {
         )
     }
 
+    const handleTextLineChange = (id: string, newTextLine: string) => {
+        setLinesArray((prevTextLine) =>
+            prevTextLine.map((textLine) =>
+                textLine.id === id ? { ...textLine, content: newTextLine } : textLine
+            )
+        )
+    }
+
     return (
         <div>
             <div className="flex justify-between items-center mb-6">
@@ -51,7 +59,13 @@ export default function Board({ songId, songName, lyrics }: boardProps) {
                     return (
                         <>
                             {index % 2 === 0 ? (
-                                <TextLine key={line.id} line={line.content} />
+                                <TextLine
+                                    key={line.id}
+                                    id={line.id}
+                                    line={line.content}
+                                    isSwitchOn={isSwitchOn}
+                                    onTextLineChange={handleTextLineChange}
+                                />
                             ) : (
                                 <ChordLine
                                     key={line.id}
