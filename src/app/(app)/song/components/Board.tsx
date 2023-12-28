@@ -22,7 +22,7 @@ export default function Board({ songId, songName, lyrics }: boardProps) {
             : [
                 {
                     id: Math.random().toString(36).substring(2),
-                    content: "Comece por aqui",
+                    content: "Comece aqui",
                 },
             ]
     );
@@ -54,6 +54,16 @@ export default function Board({ songId, songName, lyrics }: boardProps) {
         )
     }
 
+    const handlePressEnter = () => {
+        const newLines = [
+            ...linesArray,
+            { id: Math.random().toString(36).substring(2), content: "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" },
+            { id: Math.random().toString(36).substring(2), content: "" },
+        ];
+
+        setLinesArray(newLines);
+    };
+
     return (
         <div>
             <div className="flex justify-between items-center mb-6">
@@ -74,6 +84,7 @@ export default function Board({ songId, songName, lyrics }: boardProps) {
                                     line={line.content}
                                     isSwitchOn={isSwitchOn}
                                     onTextLineChange={handleTextLineChange}
+                                    onPressEnter={handlePressEnter}
                                 />
                             ) : (
                                 <ChordLine
