@@ -7,8 +7,8 @@ interface AppLayoutProps {
     children: ReactNode
 }
 
-export default async function AppLayout({children}: AppLayoutProps) {
-    const isAuthenticated = await cookies().has('token')
+export default function AppLayout({children}: AppLayoutProps) {
+    const isAuthenticated = cookies().has('token')
 
     console.log(isAuthenticated)
 
@@ -19,7 +19,7 @@ export default async function AppLayout({children}: AppLayoutProps) {
     return (
         <div>
             <Header/>
-            <div className='bg-[#141414] rounded-[10px] p-[40px]'>{children}</div>
+            <div className='bg-[#141414] rounded-[10px] p-[40px] dark:bg-white'>{children}</div>
         </div>
     )
 }

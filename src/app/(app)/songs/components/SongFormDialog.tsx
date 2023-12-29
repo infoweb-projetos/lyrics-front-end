@@ -47,7 +47,7 @@ export default function SongFormDialog({playlists}: SongFormDialogProps) {
         <div>
             <button className='flex items-center' onClick={handleClickOpen}>
                 <AddIcon className='relative left-8' sx={{color: 'black'}}/>
-                <span className='bg-white p-3 pl-11 text-black rounded-lg font-semibold'>Nova música</span>
+                <span className='bg-white p-3 pl-11 text-black rounded-lg font-semibold dark:text-white dark:bg-darkBlue'>Nova música</span>
             </button>
             <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Nova Música</DialogTitle>
