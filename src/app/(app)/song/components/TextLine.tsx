@@ -27,14 +27,14 @@ export default function TextLine({ id, line, isSwitchOn, onTextLineChange, onPre
         <div className="w-2/4 mb-4">
             {!isSwitchOn ? (
                 <input
-                    className="bg-stone-900 px-1 rounded w-full border-none outline-none"
+                    className="bg-stone-900 px-1 rounded w-full border-none outline-none dark:bg-black dark:text-white"
                     type="text"
                     value={textLine}
                     onChange={handleChange}
                     onKeyDown={handleKeyDown}
                 />
             ) : (
-                <p className="bg-stone-900 px-1 rounded w-full border-none outline-none">{textLine}</p>
+                <p className="bg-stone-900 px-1 rounded w-full border-none outline-none dark:bg-black dark:text-white">{textLine}</p>
             )}
 
         </div>

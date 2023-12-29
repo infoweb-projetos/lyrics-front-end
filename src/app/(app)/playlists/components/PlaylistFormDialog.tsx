@@ -43,11 +43,7 @@ export default function PlaylistFormDialog() {
     return (
         <div>
             <button className='flex items-center' onClick={handleClickOpen}>
-                {theme === 'dark' ? (
-                    <AddIcon className='relative left-8' sx={{ color: 'white' }} />
-                ) : (
-                    <AddIcon className='relative left-8' sx={{ color: 'black' }} />
-                )}
+                <AddIcon className='relative left-8' sx={{ color: 'black' }} />
                 <span className='bg-white p-3 pl-11 text-black rounded-lg font-semibold dark:bg-darkBlue dark:text-white'>Adicionar playlist</span>
             </button>
             <Dialog open={open} onClose={handleClose}>
