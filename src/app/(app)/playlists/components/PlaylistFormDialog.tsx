@@ -1,8 +1,7 @@
 'use client'
 
-import { useState } from 'react';
-import { createPlaylist } from '../../../../operations/createPlaylist';
-
+import { useEffect, useState } from 'react';
+import { createPlaylist } from '@/operations/createPlaylist';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -11,10 +10,21 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import AddIcon from '@mui/icons-material/Add';
 
+
 export default function PlaylistFormDialog() {
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
     const [open, setOpen] = useState(false);
+    const [theme, setTheme] = useState<string | null>(localStorage.getItem('theme'));
+
+    // useEffect(() => {
+    //     setTheme(localStorage.getItem('theme'));
+    //     if (theme === 'dark') {
+    //         console.log('dark');
+    //     } else {
+    //         console.log('light');
+    //     }
+    // }, [theme]); // Include 'theme' in the dependency array
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -25,18 +35,21 @@ export default function PlaylistFormDialog() {
     };
 
     function submit() {
-        createPlaylist(name, description)
-        setName('')
-        setDescription('')
+        createPlaylist(name, description);
+        setName('');
+        setDescription('');
     }
 
     return (
         <div>
             <button className='flex items-center' onClick={handleClickOpen}>
-                <AddIcon className='relative left-8' sx={{color: 'black'}}/>
-                <span className='bg-white p-3 pl-11 text-black rounded-lg font-semibold'>Adicionar playlist</span>
+                {theme === 'dark' ? (
+                    <AddIcon className='relative left-8' sx={{ color: 'white' }} />
+                ) : (
+                    <AddIcon className='relative left-8' sx={{ color: 'black' }} />
+                )}
+                <span className='bg-white p-3 pl-11 text-black rounded-lg font-semibold dark:bg-darkBlue dark:text-white'>Adicionar playlist</span>
             </button>
-
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Nova playlist</DialogTitle>
                 <form onSubmit={submit}>
@@ -62,8 +75,8 @@ export default function PlaylistFormDialog() {
                         />                      
                     </DialogContent>
                     <DialogActions>
-                    <Button onClick={handleClose}>Cancelar</Button>
-                    <Button type="submit" onClick={handleClose}>Confirmar</Button>
+                        <Button onClick={handleClose}>Cancelar</Button>
+                        <Button type="submit" onClick={handleClose}>Confirmar</Button>
                     </DialogActions>
                 </form>
             </Dialog>

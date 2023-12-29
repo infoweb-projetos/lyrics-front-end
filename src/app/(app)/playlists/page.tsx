@@ -9,7 +9,8 @@ export default async function Playlists(){
 
     return(
         <div className="flex flex-col h-full">
-            <div className="flex justify-between pb-3">
+            <div className="flex justify-between pb-3
+            dark:border-b-2 dark:border-gray-500">
                 <span className="text-3xl font-semibold">Playlist</span>
                 <PlaylistFormDialog />
             </div>

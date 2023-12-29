@@ -6,7 +6,8 @@ import Link from "next/link";
 export async function SongCard({ id, name, playlist_id, cardWidth }: songProps) {
     if (cardWidth) {
         return (
-            <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] max-w-[450px] p-6 flex justify-between items-center">
+            <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] max-w-[450px] p-6 flex justify-between items-center 
+            dark:bg-gradient-to-b dark:from-white dark:to-white dark:border border-black">
                 <Link href={`song/${id}`}>
                     <p className="font-medium text-xl max-w-[200px] truncate">{name}</p>
                 </Link>
@@ -18,7 +19,8 @@ export async function SongCard({ id, name, playlist_id, cardWidth }: songProps) 
         )
     } else if (!playlist_id) {
         return (
-            <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] p-6 flex justify-between items-center">
+            <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] p-6 flex justify-between items-center 
+            dark:bg-gradient-to-b dark:from-white dark:to-white dark:border border-black">
                 <Link href={`song/${id}`}>
                     <p className="font-medium text-xl max-w-[200px] truncate">{name}</p>
                 </Link>
@@ -33,7 +35,8 @@ export async function SongCard({ id, name, playlist_id, cardWidth }: songProps) 
         const playlistName = response.data.playlist.name
         return (
 
-            <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] p-6 flex justify-between items-center">
+            <div className="bg-gradient-to-b from-zinc-700/70 to-zinc-700/20 rounded-[10px] p-6 flex justify-between items-center 
+            dark:bg-gradient-to-b dark:from-white dark:to-white dark:border border-black">
                 <Link href={`song/${id}`}>
                     <div className='w-[250px]' >
                         <p className="font-medium text-xl truncate">{name}</p>
